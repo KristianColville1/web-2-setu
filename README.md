@@ -55,3 +55,54 @@ Suggestions:
 * There is no server-side component, everything is client side apart from deployment on Netlify 
 * You cannot use libraries like React, Angular etc 
 * This assignment is worth 60% of your final grade
+
+
+## Git
+This repository tracks the iterative development of the weather forecasting website assignment for Whether Weather.
+
+The structure supports multiple stages of delivery from Proof-of-Concepts (POC) to full Releases using branches and commits to document each phase of the work.
+
+## Strategy
+The assignment requires submitting multiple iterations of the same project:
+
+- POC 1 ---> POC 3
+
+- Release 1 ---> Release 3
+
+My strategy is to:
+
+* Initialize the repository with a solid foundation.
+
+* Create a dedicated branch for each POC and Release.
+
+* Ensure each branch builds upon the last, with meaningful, isolated commits representing real deliverable checkpoints.
+
+* Use Eleventy with NunJucks for templating, Bulma for styling and implement a clear MVC architecture in JavaScript.
+
+### My Timeline
+
+Project Starting Point: April 6
+Expected Final Submission: The week of May 18th (changes expected)
+Approximate Project Duration: 6 weeks
+
+Com
+
+### Git Scope & Branching
+
+| Branch    | Description |
+| ---       | ---         |
+| main      | Stable Version Release Ready |
+| poc1      | Proof of concept 1 |
+| poc1      | Proof of concept 2 |
+| poc1      | Proof of concept 3 |
+|           |  |
+| rel1      | Release 1: Dashboard |
+| rel2      | Release 2: Preferences |
+| rel3      | Release 3: Impress Us |
+
+### Software Architecture
+Will use JavaScript in an MVC pattern. 
+
+Models: Responsible for managing data
+Views: Rendering the data onto the DOM
+Controllers: Coordinating interactions

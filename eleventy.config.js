@@ -1,8 +1,8 @@
 export default async function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("data"); // Adds data directory
+    eleventyConfig.addPassthroughCopy("src/assets"); // Adds assets directory
     return {
         dir: {
-            input: "src", // Sets the input directory
+            input: "src/pages", // Sets the input directory
         }
     };
 }
