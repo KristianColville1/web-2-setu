@@ -8,6 +8,8 @@ JavaScript
 Eleventy
 Netlify
 
+weather code images: https://gist.github.com/stellasphere/9490c195ed2b53c707087c8c2db4ec0c
+
 ## Overview:
 
 Whether weather have kindly given access to use their new API.
@@ -68,6 +70,12 @@ The structure supports multiple stages of delivery from Proof-of-Concepts (POC) 
 git checkout -b branch_name
 
 git push --set-upstream origin branch_name
+
+git checkout main
+
+git pull origin branch_name
+
+git push origin main
 
 ## Strategy
 
