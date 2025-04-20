@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/src/assets/css/main.css">
+    <title>Whether Weather</title>
+    <script src="/src/data/weather_data.js"></script>
+    <script src="/src/assets/js/weather_codes.js"></script>
+    <script src="/src/assets/js/init.js"></script>
 </head>
+
 <body>
-    test
+    <div class="columns">
+        <div class="column">
+            <img src="/src/data/logo.png" alt="Logo" style="width: 200px;">
+        </div>
+        <div class="column">
+
+        </div>
+        <div class="column"></div>
+    </div>
+    <div class="columns">
+        <div class="column">
+
+        </div>
+        <div class="column">
+
+            <h1 class="title has-text-centered">Berlin</h1>
+            <h2 class="subtitle has-text-centered"><span id="time"></span>
+                <div class="has-text-centered" id="weatherCodeDescription"></div>
+
+            </h2>
+            <div class="columns">
+                <div class="column">
+                    <div class="card has-text-black has-text-centered p-3">
+                        <h3 class="title">Max Temp</h3>
+                        <p id="maxTemp"></p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card has-text-black has-text-centered p-3">
+                        <h3 class="title">Max Wind</h3>
+                        <p id="maxWind"></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="column"></div>
+    </div>
 </body>
+
 </html>

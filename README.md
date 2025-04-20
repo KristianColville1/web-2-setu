@@ -67,6 +67,8 @@ The structure supports multiple stages of delivery from Proof-of-Concepts (POC) 
 
 git checkout -b branch_name
 
+git push --set-upstream origin branch_name
+
 ## Strategy
 
 The assignment requires submitting multiple iterations of the same project:
