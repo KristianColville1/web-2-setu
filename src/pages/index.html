@@ -9,7 +9,7 @@
     <title>Whether Weather</title>
     <script src="/src/data/weather_data.js"></script>
     <script src="/src/assets/js/weather_codes.js"></script>
-    <script src="/src/assets/js/init.js"></script>
+    <script src="/src/assets/js/init.js" type="module" defer></script>
 </head>
 
 <body>
@@ -18,21 +18,9 @@
             <img src="/src/data/logo.png" alt="Logo" style="width: 200px;">
         </div>
         <div class="column">
-
-        </div>
-        <div class="column"></div>
-    </div>
-    <div class="columns">
-        <div class="column">
-
-        </div>
-        <div class="column">
-
-            <h1 class="title has-text-centered">Berlin</h1>
-            <h2 class="subtitle has-text-centered"><span id="time"></span>
-                <div class="has-text-centered" id="weatherCodeDescription"></div>
-
-            </h2>
+            <h1 class="title has-text-centered mt-4 ">Berlin</h1>
+            <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
+            <div class="has-text-centered" id="weatherCodeDescription"></div>
             <div class="columns">
                 <div class="column">
                     <div class="card has-text-black has-text-centered p-3">
@@ -47,13 +35,16 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
-        <div class="column"></div>
+        <div class="column">
+            <div class="card py-3">
+                <h4 class="title has-text-centered">Right Now</h4>
+                <div class="columns">
+                    <div class="column has-text-centered" id="hourlyTemp"></div>
+                    <div class="column has-text-centered" id="hourlyWind"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

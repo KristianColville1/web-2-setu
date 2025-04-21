@@ -1,4 +1,4 @@
-import { getHourlyTemperature } from "./utils/data_utils.js";
+import { getHourlyTemperature, getHourlyWindSpeed } from "./utils/data_utils.js";
 
 const currentCity = "berlin";
 const currentCityData = weatherData[currentCity + "_daily"];
@@ -27,3 +27,4 @@ const hourlyWind = document.getElementById("hourlyWind");
 
 const currentHour = new Date().getUTCHours();
 hourlyTemp.innerHTML = getHourlyTemperature(currentCityDataHourly, currentHour);
+hourlyWind.innerHTML = getHourlyWindSpeed(currentCityDataHourly, currentHour);
