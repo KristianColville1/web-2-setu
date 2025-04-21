@@ -7,5 +7,11 @@
  */
 export const getHourlyTemperature = (data, timestamp) => {
     // Find the index of the current hour in the api data
-    // Using the index of the current hour, get thetemperature
+    const index = data.hourly.time.findIndex((time) =>
+        time.includes(timestamp)
+    );
+    // Using the index of the current hour, get the temperature
+    return index !== -1
+        ? `${data.hourly.apparent_temperature[index]}°C`
+        : "N/A";
 };
