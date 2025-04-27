@@ -4,6 +4,7 @@ export default async function (eleventyConfig) {
         dir: {
             input: "src", // Sets the input directory
             layouts: "components/layouts", // Sets the layouts directory
+            includes: "components/partials", // Sets the includes directory
         }
     };
 }
