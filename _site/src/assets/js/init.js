@@ -1,4 +1,4 @@
-import { getHourlyTemperature, getHourlyWindSpeed } from "./utils/data_utils.js";
+import { getHourlyTemperature, getHourlyWindSpeed, getDailyForecast } from "./utils/data_utils.js";
 
 // city today & hourly data
 const currentCity = "berlin";
@@ -12,6 +12,7 @@ const maxWind = document.getElementById("maxWind");
 const weatherCodeDescription = document.getElementById("weatherCodeDescription");
 const hourlyTemp = document.getElementById("hourlyTemp");
 const hourlyWind = document.getElementById("hourlyWind");
+const dailyForecastContainer = document.getElementById("dailyForecastContainer");
 
 weatherCodeDescription.classList.add("has-text-centered");
 
@@ -33,3 +34,37 @@ weatherCodeDescription.innerHTML = `
 
 hourlyTemp.innerHTML = getHourlyTemperature(currentCityDataHourly, currentHour);
 hourlyWind.innerHTML = getHourlyWindSpeed(currentCityDataHourly, currentHour);
+
+
+// Function to get the day name
+function getDayName(index) {
+    if (index === 0) return "Today";
+    if (index === 1) return "Tomorrow";
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const forecastDate = new Date();
+    forecastDate.setDate(forecastDate.getDate() + index);
+    return daysOfWeek[forecastDate.getDay()];
+}
+
+const dailyForecast = getDailyForecast(currentCityData);
+
+// Loop through the daily forecast data and create the HTML for each day forecast
+dailyForecastContainer.innerHTML = dailyForecast
+    .map((forecast, index) => {
+        return `
+        <div class="column">
+            <div class="box mx-4 mb-4 has-text-centered">
+                <p class="title is-5">${getDayName(index)}</p>
+                <figure class="image is-128x128 m-auto">
+                    <img src="${weatherCodes[forecast.weatherCode].day.image}" 
+                         alt="${weatherCodes[forecast.weatherCode].day.description}" />
+                </figure>
+                <div class="is-flex is-justify-content-space-between mt-3">
+                    <p class="subtitle is-6">${forecast.temperature}°C</p>
+                    <p class="subtitle is-6">${forecast.windSpeed} km/h</p>
+                </div>
+            </div>
+        </div>
+        `;
+    })
+    .join("");

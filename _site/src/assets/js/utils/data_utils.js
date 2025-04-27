@@ -36,3 +36,22 @@ export const getHourlyWindSpeed = (data, timestamp) => {
         ? `${data.hourly.wind_speed_10m[index]} km/h`
         : "N/A";
 };
+
+/**
+ * Get the daily forecast
+ * @function getDailyForecast
+ * @param {Object} data - The weather data object
+ * @returns {array} - The daily forecast
+ */
+export const getDailyForecast = (data) => {
+    const dailyForecast = data.daily.time.map((time, index) => {
+        return {
+            time: time,
+            temperature: data.daily.apparent_temperature_max[index],
+            windSpeed: data.daily.wind_speed_10m_max[index],
+            weatherCode: data.daily.weather_code[index],
+        };
+    }); // creates an array of objects with the daily forecast data
+
+    return dailyForecast;
+}
