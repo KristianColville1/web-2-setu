@@ -14,7 +14,7 @@
     <title>Whether Weather</title>
     <script src="/assets/data/weather_data.js" ></script>
     <script src="/assets/js/weather_codes.js"></script>
-    <script src="/assets/js/init.js" type="module" defer></script>
+    <!-- <script src="/assets/js/init.js" type="module" defer></script> -->
     <script src="/assets/js/main.js" type="module" defer></script>
 </head>
 
@@ -55,7 +55,7 @@
         <div class="column">
             <h1 class="title has-text-centered mt-4 ">Berlin</h1>
             <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
-            <div class="has-text-centered" id="weatherCodeDescription"></div>
+            <div class="has-text-centered" id="weatherCode"></div>
             <div class="columns">
                 <div class="column">
                     <div class="card has-text-black has-text-centered p-3">
@@ -75,8 +75,8 @@
             <div class="card py-3">
                 <h4 class="title has-text-centered">Right Now</h4>
                 <div class="columns">
-                    <div class="column has-text-centered" id="hourlyTemp"></div>
-                    <div class="column has-text-centered" id="hourlyWind"></div>
+                    <div class="column has-text-centered" id="tempNow"></div>
+                    <div class="column has-text-centered" id="windNow"></div>
                 </div>
             </div>
         </div>
@@ -84,7 +84,6 @@
     <div class="columns" id="dailyForecastContainer">
     
     </div>
-    <pre>pageId: cityFocus</pre>
     <footer class="footer mt-auto">
     <div class="content has-text-centered has-background-light">
         Footer

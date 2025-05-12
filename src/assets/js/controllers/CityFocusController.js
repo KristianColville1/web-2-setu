@@ -1,6 +1,31 @@
+import CityFocusModel from "../models/CityFocusModel.js";
+import CityFocusView from "../views/CityFocusView.js";
 
+/**
+ * @class CityFocusController
+ * @description Controller for the city focus page.
+ * Handles the interaction between the model and view for displaying city weather data.
+ */
 export default class CityFocusController {
-    init(){
-        console.log("CityFocusController initialized");
+    /**
+     * @constructor 
+     * @description Initializes the CityFocusController with the city name from URL parameters.
+     */
+    constructor() {
+        const params = new URLSearchParams(window.location.search);
+        this.city = params.get("city");
+        this.model = new CityFocusModel();
+        this.view = new CityFocusView();
+    }
+
+    /**
+     * @method init
+     * @description Initializes the controller by setting up the model and view with the city weather data.
+     */
+    init() {
+        this.model.init(this.city);
+        const weatherToday = this.model.getCityWeather();
+        const weatherHourly = this.model.getCityWeatherHourly();
+        this.view.init(weatherToday, weatherHourly);
     }
 }

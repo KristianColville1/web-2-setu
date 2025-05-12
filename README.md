@@ -119,3 +119,9 @@ Will use JavaScript in an MVC pattern.
 Models: Responsible for managing data
 Views: Rendering the data onto the DOM
 Controllers: Coordinating interactions
+
+
+// domain driven
+// mvc
+// repository pattern
+// singleton pattern

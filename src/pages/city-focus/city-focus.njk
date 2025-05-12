@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: City Focus
-permalink: city-focus/index.html
+permalink: city-focus.html
 pageId: cityFocus
 ---
     <div class="columns">
@@ -11,7 +11,7 @@ pageId: cityFocus
         <div class="column">
             <h1 class="title has-text-centered mt-4 ">Berlin</h1>
             <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
-            <div class="has-text-centered" id="weatherCodeDescription"></div>
+            <div class="has-text-centered" id="weatherCode"></div>
             <div class="columns">
                 <div class="column">
                     <div class="card has-text-black has-text-centered p-3">
@@ -31,8 +31,8 @@ pageId: cityFocus
             <div class="card py-3">
                 <h4 class="title has-text-centered">Right Now</h4>
                 <div class="columns">
-                    <div class="column has-text-centered" id="hourlyTemp"></div>
-                    <div class="column has-text-centered" id="hourlyWind"></div>
+                    <div class="column has-text-centered" id="tempNow"></div>
+                    <div class="column has-text-centered" id="windNow"></div>
                 </div>
             </div>
         </div>
@@ -40,4 +40,3 @@ pageId: cityFocus
     <div class="columns" id="dailyForecastContainer">
     
     </div>
-    <pre>pageId: {{ pageId }}</pre>
