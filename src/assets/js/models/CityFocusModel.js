@@ -93,4 +93,15 @@ export default class CityFocusModel {
 
         return dailyForecast;
     }
+
+    /**
+     * 
+     * @returns {object} - The current city weather data
+     */
+    getCityAllWeather() {
+        const weatherToday = this.getCityWeather();
+        const weatherHourly = this.getCityWeatherHourly();
+        const dailyForecast = this.getDailyForecast(this.currentCityDaily);
+        return { weatherToday, weatherHourly, dailyForecast };
+    }
 }
