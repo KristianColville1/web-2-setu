@@ -16,7 +16,7 @@ export default class CityFocusView {
      * @description Initializes the CityFocusView class
      */
     constructor() {
-        this.cityName = document.querySelector("#city-name");
+        this.cityName = document.querySelector("#cityName");
         this.maxTemp = document.querySelector("#maxTemp");
         this.maxWind = document.querySelector("#maxWind");
         this.weatherCode = document.querySelector("#weatherCode");
@@ -94,5 +94,10 @@ export default class CityFocusView {
                 style="width:225px" />
             <p class="mb-3">${weatherCodes[weatherCode].day.description}</p>
         `;
+    }
+
+    addCityName(cityName) {
+        this.cityName.innerHTML =
+            cityName.charAt(0).toUpperCase() + cityName.slice(1);
     }
 }

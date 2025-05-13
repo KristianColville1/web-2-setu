@@ -120,8 +120,10 @@ Models: Responsible for managing data
 Views: Rendering the data onto the DOM
 Controllers: Coordinating interactions
 
-
 // domain driven
 // mvc
 // repository pattern
 // singleton pattern
+
+// netlify integrated with main when rel1 branch
+// https://whetherweather96.netlify.app/
