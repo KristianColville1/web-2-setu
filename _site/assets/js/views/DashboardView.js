@@ -24,7 +24,7 @@ export default class DashboardView {
                 <div class="column is-12-mobile is-4-tablet">
                     <a href="/city-focus?city=${name}">
                         <div class="card has-text-black has-text-centered p-3">
-                            <h3 class="title">${nameFormatted}</h3>
+                            <h3 class="subtitle">${nameFormatted}</h3>
                                 <figure class="image is-128x128 is-flex is-justify-content-centered mx-auto">
                                     ${weatherIcon}
                                 </figure>
