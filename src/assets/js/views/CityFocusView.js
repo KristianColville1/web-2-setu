@@ -1,4 +1,5 @@
-import {getDayName} from "../utils/date.js";
+import { getDayName } from "../utils/date.js";
+import { getWeatherIcon } from "../utils/weather_utils.js";
 
 /**
  * CityFocusModel.js
@@ -47,7 +48,7 @@ export default class CityFocusView {
         // this.cityName.innerHTML = weatherData.cityName;
         this.maxTemp.innerHTML = `${weatherData.maxTemp} °C`;
         this.maxWind.innerHTML = `${weatherData.maxWind} km/h`;
-        this.weatherCode.innerHTML = this.getWeatherIcon(
+        this.weatherCode.innerHTML = getWeatherIcon(
             weatherData.weatherCode
         );
     }
@@ -84,16 +85,6 @@ export default class CityFocusView {
         `;
             })
             .join("");
-    }
-
-    getWeatherIcon(weatherCode) {
-        return `
-            <img src="${weatherCodes[weatherCode].day.image}" 
-                alt="${weatherCodes[weatherCode].day.description}" 
-                class="m-auto mx-auto" 
-                style="width:225px" />
-            <p class="mb-3">${weatherCodes[weatherCode].day.description}</p>
-        `;
     }
 
     addCityName(cityName) {

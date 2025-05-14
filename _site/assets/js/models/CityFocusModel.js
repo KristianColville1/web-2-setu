@@ -104,4 +104,32 @@ export default class CityFocusModel {
         const dailyForecast = this.getDailyForecast(this.currentCityDaily);
         return { weatherToday, weatherHourly, dailyForecast };
     }
+
+    /**
+     * 
+     * @returns {array} - The list of cities
+     */
+    retrieveCitiesList() {
+        // Get a list of cities dynamically from the weatherData object
+        const allKeys = Object.keys(weatherData);
+        const citiesList = allKeys
+            .filter((key) => key.endsWith("_daily")) // Filter keys that end with _daily
+            .map((key) => key.replace(/_daily$/, "").toLowerCase()); // Remove _daily and convert to lowercase
+        return citiesList;
+    }
+
+    retrieveAllCityDailyWeather(citiesList) {
+        // Get the daily weather data for all cities
+        const allCitiesWeather = citiesList.map((city) => {
+            const cityDailyWeather = weatherData[`${city}_daily`];
+            return {
+                cityName: city,
+                maxTemp: cityDailyWeather.daily.apparent_temperature_max[0],
+                maxWind: cityDailyWeather.daily.wind_speed_10m_max[0],
+                weatherCode: cityDailyWeather.daily.weather_code[0],
+            };
+        });
+        return allCitiesWeather;
+        
+    }
 }
