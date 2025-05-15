@@ -8,7 +8,7 @@ export default class DashboardController {
     }
 
     setupDashboard() {
-        const cities = this.model.retrieveCitiesList();
+        const cities = CityFocusModel.retrieveCitiesList();
         const allCityData = this.model.retrieveAllCityDailyWeather(cities);
 
         this.view.renderDashboard(cities, allCityData);

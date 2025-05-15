@@ -6,7 +6,7 @@ import SettingsController from "./controllers/SettingsController.js";
 const controllers = {
     cityFocus: new CityFocusController(),
     dashboard: new DashboardController(),
-    preferences: new SettingsController()
+    settings: new SettingsController()
 }
 
 // listen for DOMContentLoaded event on the document
