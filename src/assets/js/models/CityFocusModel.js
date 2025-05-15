@@ -9,6 +9,7 @@
 export default class CityFocusModel {
     init(cityName) {
         this.cityName = cityName;
+        this.cityNameFormatted = cityName.charAt(0).toUpperCase() + cityName.slice(1);
         this.currentCityDaily = weatherData[`${cityName}_daily`];
         this.currentCityHourly = weatherData[`${cityName}_hourly`];
     }
@@ -122,8 +123,11 @@ export default class CityFocusModel {
         // Get the daily weather data for all cities
         const allCitiesWeather = citiesList.map((city) => {
             const cityDailyWeather = weatherData[`${city}_daily`];
+            let cityNameFormatted = city.charAt(0).toUpperCase() + city.slice(1);
+            cityNameFormatted = cityNameFormatted.replace(/_/g, " ");
             return {
                 cityName: city,
+                cityNameFormatted: cityNameFormatted,
                 maxTemp: cityDailyWeather.daily.apparent_temperature_max[0],
                 maxWind: cityDailyWeather.daily.wind_speed_10m_max[0],
                 weatherCode: cityDailyWeather.daily.weather_code[0],

@@ -10,12 +10,10 @@ export default class DashboardView {
         this.forecastContainer.innerHTML = cityNameList
             .map((city, index) => {
                 let name = city;
-                let nameFormatted =
-                    name.charAt(0).toUpperCase() + name.slice(1);
-                nameFormatted = nameFormatted.replace(/_/g, " ");
+                
                 let key = `${name}_daily`;
                 let weatherIcon = getWeatherIcon(dailyForecast[index].weatherCode);
-
+                let nameFormatted = dailyForecast[index].cityNameFormatted;
                 let tempNow = dailyForecast[index].maxTemp;
                 let windNow = dailyForecast[index].maxWind;
 

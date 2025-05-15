@@ -127,3 +127,5 @@ Controllers: Coordinating interactions
 
 // netlify integrated with main when rel1 branch
 // https://whetherweather96.netlify.app/
+
+// bulma extension for toggle

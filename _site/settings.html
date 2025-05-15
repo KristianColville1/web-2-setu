@@ -18,7 +18,7 @@
     <script src="/assets/js/main.js" type="module" defer></script>
 </head>
 
-<body id="app" data-page="dashboard">
+<body id="app" data-page="settings">
     <header class="container">
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -50,9 +50,14 @@
 
     
 <div class="container">
-    <h1 class="title has-text-centered">Dashboard</h1>
-    <p class="subtitle has-text-centered">Welcome to your dashboard</p>
+    <h1 class="title has-text-centered">Settings</h1>
+    <p class="subtitle has-text-centered">Edit Settings</p>
     <div class="columns is-multiline" id="forecastContainer">
+
+        <div class="toggle-container">
+            <input id="yesNoToggle" type="checkbox" name="toggle" class="switch is-rounded is-small is-info">
+            <label for="yesNoToggle">On</label>
+            </div>
     </div>
 </div>
     <footer class="footer mt-auto">

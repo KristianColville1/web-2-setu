@@ -1,12 +1,12 @@
 import CityFocusController from "./controllers/CityFocusController.js";
 import DashboardController from "./controllers/DashboardController.js";
-import PreferencesController from "./controllers/PreferencesController.js";
+import SettingsController from "./controllers/SettingsController.js";
 
 // controller imports
 const controllers = {
     cityFocus: new CityFocusController(),
     dashboard: new DashboardController(),
-    preferences: new PreferencesController()
+    preferences: new SettingsController()
 }
 
 // listen for DOMContentLoaded event on the document
