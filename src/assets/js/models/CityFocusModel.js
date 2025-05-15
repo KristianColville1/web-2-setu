@@ -1,19 +1,26 @@
 /**
  * CityFocusModel.js
- * @description This module defines the CityFocusModel class, which is responsible for managing the weather data for a specific city.
- * It provides methods to initialize the model with city data and retrieve the current weather information.
+ * @description Manages weather data for a specific city, providing methods to initialize with city data and retrieve weather information for others.
  * @module CityFocusModel
  * @requires weatherData
  * @requires weatherCodes
  */
 export default class CityFocusModel {
+    /**
+     * Initialize the model with a city name.
+     * @param {string} cityName - The name of the city.
+     */
     init(cityName) {
         this.cityName = cityName;
-        this.cityNameFormatted = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+        this.cityNameFormatted = CityFocusModel.formatCityName(cityName);
         this.currentCityDaily = weatherData[`${cityName}_daily`];
         this.currentCityHourly = weatherData[`${cityName}_hourly`];
     }
 
+    /**
+     * Get todays weather summary for the current city.
+     * @returns {Object} Weather summary for today.
+     */
     getCityWeather() {
         return {
             cityName: this.cityName,
@@ -24,8 +31,17 @@ export default class CityFocusModel {
         };
     }
 
+    /**
+     * Get the current hours weather for the city.
+     * @returns {Object} Hourly weather data.
+     */
     getCityWeatherHourly() {
-        const currentHour = new Date().getUTCHours(); // gets the current hour in utc
+        const formatter = new Intl.DateTimeFormat("en-IE", { // Set the locale to Ireland
+            hour: "numeric",
+            hour12: false,
+            timeZone: "Europe/Dublin",
+        });
+        const currentHour = parseInt(formatter.format(new Date()), 10);
         return {
             time: this.currentCityHourly.time,
             hourlyTemp: this.getHourlyTemperature(
@@ -35,105 +51,112 @@ export default class CityFocusModel {
             hourlyWind: this.getHourlyWindSpeed(
                 this.currentCityHourly,
                 currentHour
-            )
+            ),
         };
     }
 
     /**
-     * Get the current hourly temperature
-     * @function getHourlyTemperature
-     * @param {Object} data - The weather data object
-     * @param {number} timestamp - The chosen time in the format iso8601
-     * @returns {string} - The current hourly temperature
+     * Get the temperature for a specific hour.
+     * @param {Object} data - The weather data object.
+     * @param {number} hour - The hour 0 - 23.
+     * @returns {string} The temperature for the hour, or "N/A".
      */
     getHourlyTemperature(data, timestamp) {
         // Find the index of the current hour in the api data
         const index = data.hourly.time.findIndex((time) =>
             time.includes(timestamp)
         );
-        // Using the index of the current hour, get the temperature
         return index !== -1
             ? `${data.hourly.apparent_temperature[index]}`
             : "N/A";
     }
 
     /**
-     * Get the current hourly wind speed
-     * @function getHourlyWindSpeed
-     * @param {Object} data - The weather data object
-     * @param {number} timestamp - The chosen time in the format iso8601
-     * @returns {string} - The current hourly wind speed
+     * Get the wind speed for a specific hour.
+     * @param {Object} data - The weather data object.
+     * @param {number} hour - The hour 0 - 23.
+     * @returns {string} The wind speed for the hour or N/A.
      */
     getHourlyWindSpeed(data, timestamp) {
         // Find the index of the current hour in the api data
         const index = data.hourly.time.findIndex((time) =>
             time.includes(timestamp)
         );
-
-        // Using the index of the current hour, get the wind speed
-        return index !== -1
-            ? `${data.hourly.wind_speed_10m[index]}`
-            : "N/A";
+        return index !== -1 ? `${data.hourly.wind_speed_10m[index]}` : "N/A";
     }
 
     /**
-     * Get the daily forecast
-     * @function getDailyForecast
-     * @param {Object} data - The weather data object
-     * @returns {array} - The daily forecast
+     * Get the daily forecast for a city.
+     * @param {Object} data - The weather data object.
+     * @returns {Array<Object>} Array of daily forecast objects.
      */
     getDailyForecast(data) {
-        const dailyForecast = data.daily.time.map((time, index) => {
-            return {
-                time: time,
-                temperature: data.daily.apparent_temperature_max[index],
-                windSpeed: data.daily.wind_speed_10m_max[index],
-                weatherCode: data.daily.weather_code[index],
-            };
-        }); // creates an array of objects with the daily forecast data
-
-        return dailyForecast;
+        return data.daily.time.map((time, idx) => ({
+            time,
+            temperature: data.daily.apparent_temperature_max[idx],
+            windSpeed: data.daily.wind_speed_10m_max[idx],
+            weatherCode: data.daily.weather_code[idx],
+        }));
     }
 
     /**
-     * 
-     * @returns {object} - The current city weather data
+     * Get all weather data for the current city.
+     * @returns {Object} Object containing todays, hourly, and daily forecast data.
      */
     getCityAllWeather() {
-        const weatherToday = this.getCityWeather();
-        const weatherHourly = this.getCityWeatherHourly();
-        const dailyForecast = this.getDailyForecast(this.currentCityDaily);
-        return { weatherToday, weatherHourly, dailyForecast };
+        return {
+            weatherToday: this.getCityWeather(),
+            weatherHourly: this.getCityWeatherHourly(),
+            dailyForecast: this.getDailyForecast(this.currentCityDaily),
+        };
     }
 
     /**
-     * 
-     * @returns {array} - The list of cities
+     * Retrieve a list of city keys from weatherData.
+     * @returns {Array<string>} List of city keys.
      */
-    retrieveCitiesList() {
-        // Get a list of cities dynamically from the weatherData object
-        const allKeys = Object.keys(weatherData);
-        const citiesList = allKeys
-            .filter((key) => key.endsWith("_daily")) // Filter keys that end with _daily
-            .map((key) => key.replace(/_daily$/, "").toLowerCase()); // Remove _daily and convert to lowercase
-        return citiesList;
+    static retrieveCitiesList() {
+        return Object.keys(weatherData)
+            .filter((key) => key.endsWith("_daily"))
+            .map((key) => key.replace(/_daily$/, "").toLowerCase());
     }
 
+    /**
+     * Retrieve a list of formatted city names.
+     * @returns {Array<string>} List of formatted city names.
+     */
+    static retrieveCitiesListFormatted() {
+        return CityFocusModel.retrieveCitiesList().map(
+            CityFocusModel.formatCityName
+        );
+    }
+
+    /**
+     * Get the daily weather summary for all cities.
+     * @param {Array<string>} citiesList - List of city keys.
+     * @returns {Array<Object>} Array of weather summaries for each city.
+     */
     retrieveAllCityDailyWeather(citiesList) {
-        // Get the daily weather data for all cities
-        const allCitiesWeather = citiesList.map((city) => {
+        return citiesList.map((city) => {
             const cityDailyWeather = weatherData[`${city}_daily`];
-            let cityNameFormatted = city.charAt(0).toUpperCase() + city.slice(1);
-            cityNameFormatted = cityNameFormatted.replace(/_/g, " ");
             return {
                 cityName: city,
-                cityNameFormatted: cityNameFormatted,
+                cityNameFormatted: CityFocusModel.formatCityName(city),
                 maxTemp: cityDailyWeather.daily.apparent_temperature_max[0],
                 maxWind: cityDailyWeather.daily.wind_speed_10m_max[0],
                 weatherCode: cityDailyWeather.daily.weather_code[0],
             };
         });
-        return allCitiesWeather;
-        
+    }
+
+    /**
+     * Format a city key to a human-readable name.
+     * @param {string} city - The city key.
+     * @returns {string} Formatted city name.
+     */
+    static formatCityName(city) {
+        if (!city) return "";
+        let formatted = city.charAt(0).toUpperCase() + city.slice(1);
+        return formatted.replace(/_/g, " ");
     }
 }
