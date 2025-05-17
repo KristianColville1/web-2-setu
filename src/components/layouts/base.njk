@@ -9,14 +9,26 @@
     <meta name="author" content="Kristian Colville">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#000000">
+
+    <!-- icons for devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <title>Whether Weather</title>
-    <script src="/assets/data/weather_data.js" ></script>
+
+    <!-- JS -->
+    <script src="/assets/data/weather_data.js"></script>
     <script src="/assets/js/weather_codes_ver2.js"></script>
     <script src="/assets/js/main.js" type="module" defer></script>
+
+    <title>Whether Weather</title>
 </head>
+
 
 <body id="app" data-page="{{ pageId }}" class="has-background-light">
     {% include "header.njk" %}

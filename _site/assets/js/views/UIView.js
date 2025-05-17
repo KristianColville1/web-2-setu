@@ -1,4 +1,10 @@
+/**
+ * UIView handles direct DOM manipulations for UI components.
+ */
 export default class UIView {
+    /**
+     * Sets up the burger menu toggle functionality for responsive navigation.
+     */
     setupBurgerMenu() {
         const burger = document.querySelector('.navbar-burger');
         const menu = document.querySelector(`#${burger?.dataset.target}`);

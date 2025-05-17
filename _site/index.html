@@ -9,14 +9,26 @@
     <meta name="author" content="Kristian Colville">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#000000">
+
+    <!-- icons for devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <title>Whether Weather</title>
-    <script src="/assets/data/weather_data.js" ></script>
+
+    <!-- JS -->
+    <script src="/assets/data/weather_data.js"></script>
     <script src="/assets/js/weather_codes_ver2.js"></script>
     <script src="/assets/js/main.js" type="module" defer></script>
+
+    <title>Whether Weather</title>
 </head>
+
 
 <body id="app" data-page="dashboard" class="has-background-light">
     <header class="container is-fluid mx-0 px-0 has-background-white has-shadow">
@@ -59,9 +71,9 @@
     <div class="columns is-multiline mx-2" id="forecastContainer">
     </div>
 </div>
-    <footer class="footer has-background-dark has-text-white">
+    <footer class="footer has-background-grey-lighter">
     <div class="content has-text-centered">
-        <p class="is-size-5 white-blur">
+        <p class="is-size-5">
             <a href="/" className="navbar-brand is-info has-text-weight-bold">
     <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
 </a>
@@ -71,10 +83,10 @@
         </p>
     </div>
     <div class="content has-text-centered">
-        <p class="is-size-7 has-text-grey-light">
+        <p class="is-size-7">
             Built by
             <a href="https://github.com/KristianColville1/web-2-setu"
-                class="has-text-grey-light has-text-weight-semibold" target="_blank" rel="noopener noreferrer">
+                class="has-text-grey has-text-weight-semibold" target="_blank" rel="noopener noreferrer">
                 Kristian Colville
             </a>
         </p>
