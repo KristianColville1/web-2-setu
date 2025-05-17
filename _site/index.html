@@ -18,15 +18,14 @@
     <script src="/assets/js/main.js" type="module" defer></script>
 </head>
 
-<body id="app" data-page="dashboard">
-    <header class="container">
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<body id="app" data-page="dashboard" class="has-background-light">
+    <header class="container is-fluid mx-0 px-0 has-background-white has-shadow">
+<nav class="navbar container px-2" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a href="/" className="navbar-brand is-info has-text-weight-bold">
-            <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
-        </a>
-
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
+</a>
+        <a role="button" class="navbar-burger has-text-info" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -49,7 +48,7 @@
 </header>
 
     
-<div class="container">
+<div class="container py-4">
     <h1 class="title has-text-centered">Dashboard</h1>
     <p class="subtitle has-text-centered">Welcome to your dashboard</p>
     <div class="is-invisible is-flex is-justify-content-center mb-4" id="toggleFavouritesContainer">
@@ -60,11 +59,28 @@
     <div class="columns is-multiline mx-2" id="forecastContainer">
     </div>
 </div>
-    <footer class="footer mt-auto">
-    <div class="content has-text-centered has-background-light">
-        Footer
+    <footer class="footer has-background-dark has-text-white">
+    <div class="content has-text-centered">
+        <p class="is-size-5 white-blur">
+            <a href="/" className="navbar-brand is-info has-text-weight-bold">
+    <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
+</a>
+        </p>
+        <p class="is-size-6">
+            &copy; <span class="current-year"></span> Whether Weather. All rights reserved.
+        </p>
+    </div>
+    <div class="content has-text-centered">
+        <p class="is-size-7 has-text-grey-light">
+            Built by
+            <a href="https://github.com/KristianColville1/web-2-setu"
+                class="has-text-grey-light has-text-weight-semibold" target="_blank" rel="noopener noreferrer">
+                Kristian Colville
+            </a>
+        </p>
     </div>
 </footer>
+  
 </body>
 
 </html>

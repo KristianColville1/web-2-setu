@@ -4,39 +4,36 @@ title: City Focus
 permalink: city-focus.html
 pageId: cityFocus
 ---
-    <div class="columns">
-        <div class="column">
-    
-        </div>
-        <div class="column">
-            <h1 class="title has-text-centered mt-4 " id="cityName"></h1>
-            <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
-            <div class="has-text-centered" id="weatherCode"></div>
-            <div class="columns">
-                <div class="column">
-                    <div class="card has-text-black has-text-centered p-3">
-                        <h3 class="title">Max Temp</h3>
-                        <p id="maxTemp"></p>
-                    </div>
+<div class="container columns py-4">
+    <div class="column">
+        <h1 class="title has-text-centered mt-4 " id="cityName"></h1>
+        <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
+        <div class="has-text-centered mb-3" id="weatherCode"></div>
+        <div class="columns">
+            <div class="column">
+                <div class="box has-text-black has-text-centered p-3">
+                    <h3 class="title">Max Temp</h3>
+                    <p id="maxTemp"></p>
                 </div>
-                <div class="column">
-                    <div class="card has-text-black has-text-centered p-3">
-                        <h3 class="title">Max Wind</h3>
-                        <p id="maxWind"></p>
+            </div>
+            <div class="column">
+                <div class="box has-text-black has-text-centered p-3">
+                    <h3 class="title">Max Wind</h3>
+                    <p id="maxWind"></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="box py-3">
+                    <h4 class="title has-text-centered">Right Now</h4>
+                    <div class="columns">
+                        <div class="column has-text-centered" id="tempNow"></div>
+                        <div class="column has-text-centered" id="windNow"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="column">
-            <div class="card py-3">
-                <h4 class="title has-text-centered">Right Now</h4>
-                <div class="columns">
-                    <div class="column has-text-centered" id="tempNow"></div>
-                    <div class="column has-text-centered" id="windNow"></div>
-                </div>
-            </div>
-        </div>
     </div>
-    <div class="columns" id="dailyForecastContainer">
-    
-    </div>
+
+</div>
+<div class="container columns is-multiline is-flex is-justify-content-center" id="dailyForecastContainer">
+</div>

@@ -22,3 +22,14 @@
   border-bottom-left-radius: 0;
   margin-left: 0;
 }
+
+.card {
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}

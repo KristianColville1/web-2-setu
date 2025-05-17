@@ -18,15 +18,14 @@
     <script src="/assets/js/main.js" type="module" defer></script>
 </head>
 
-<body id="app" data-page="settings">
-    <header class="container">
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<body id="app" data-page="settings" class="has-background-light">
+    <header class="container is-fluid mx-0 px-0 has-background-white has-shadow">
+<nav class="navbar container px-2" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a href="/" className="navbar-brand is-info has-text-weight-bold">
-            <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
-        </a>
-
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
+</a>
+        <a role="button" class="navbar-burger has-text-info" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -49,25 +48,40 @@
 </header>
 
     
-<div class="container">
+<div class="container py-4">
     <h1 class="title has-text-centered">Settings</h1>
     <p class="subtitle has-text-centered">Edit Settings</p>
-    <div class="columns is-multiline " >
-        <div class="column is-3 card" id="">
+    <div class="columns is-multiline mx-2 is-flex is-justify-content-center" >
+        <div class="column is-12-mobile is-4-tablet is-3-desktop box" id="">
             <h2 class="subtitle has-text-centered">Favourite Cities</h2>
             <div id="favouriteCitiesContainer">
                 <!-- Favourite cities will be dynamically added here -->
             </div>
         </div>
-        <div class="column is-3"></div>
-        <div class="column is-3"></div>
     </div>
 </div>
-    <footer class="footer mt-auto">
-    <div class="content has-text-centered has-background-light">
-        Footer
+    <footer class="footer has-background-dark has-text-white">
+    <div class="content has-text-centered">
+        <p class="is-size-5 white-blur">
+            <a href="/" className="navbar-brand is-info has-text-weight-bold">
+    <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
+</a>
+        </p>
+        <p class="is-size-6">
+            &copy; <span class="current-year"></span> Whether Weather. All rights reserved.
+        </p>
+    </div>
+    <div class="content has-text-centered">
+        <p class="is-size-7 has-text-grey-light">
+            Built by
+            <a href="https://github.com/KristianColville1/web-2-setu"
+                class="has-text-grey-light has-text-weight-semibold" target="_blank" rel="noopener noreferrer">
+                Kristian Colville
+            </a>
+        </p>
     </div>
 </footer>
+  
 </body>
 
 </html>

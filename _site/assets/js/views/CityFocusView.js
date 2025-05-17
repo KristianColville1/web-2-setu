@@ -1,4 +1,4 @@
-import { getDayName } from "../utils/date.js";
+import { getDayName, changeBackgroundByDay } from "../utils/date.js";
 import { getWeatherIcon } from "../utils/weather_utils.js";
 
 /**
@@ -67,8 +67,8 @@ export default class CityFocusView {
       this.dailyForecastContainer.innerHTML = dailyForecast
             .map((forecast, index) => {
                 return `
-        <div class="column">
-            <div class="box mx-4 mb-4 has-text-centered">
+        <div class="column is-12-mobile is-6-tablet is-3-desktop">
+            <div class="box mx-1 mb-4 has-text-centered ${changeBackgroundByDay(index)}">
                 <p class="title is-5">${getDayName(index)}</p>
                 <figure class="image is-128x128 m-auto">
                     <img src="${weatherCodes[forecast.weatherCode].day.image}" 

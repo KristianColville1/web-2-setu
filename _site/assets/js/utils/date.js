@@ -12,3 +12,22 @@ export function getDayName(index) {
     forecastDate.setDate(forecastDate.getDate() + index);
     return daysOfWeek[forecastDate.getDay()];
 }
+
+export function changeBackgroundByDay(index) {
+        const dayName = getDayName(index);
+        if(dayName == "Today"){
+            return "has-background-primary-light";
+        }
+        if(dayName == "Tomorrow"){
+            return "has-background-info-light";
+        }
+        if(dayName == "Friday"){
+            return "has-background-warning-light";
+        }
+        if(dayName == "Saturday"){
+            return "has-background-danger-light";
+        }
+        if(dayName == "Sunday"){
+            return "has-background-success-light";
+        }
+    }
