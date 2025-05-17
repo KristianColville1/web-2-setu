@@ -10,3 +10,15 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+.no-radius-left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: 0;
+}
+
+.no-radius-right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 0;
+}

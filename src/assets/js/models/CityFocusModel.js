@@ -149,6 +149,20 @@ export default class CityFocusModel {
         });
     }
 
+    retrieveAllCityDailyWeatherFromFormattedList(citiesList) {
+        return citiesList.map((city) => {
+            const cityKey = city.toLowerCase().replace(/ /g, "_"); // replace spaces with underscores
+            const cityDailyWeather = weatherData[`${cityKey}_daily`];
+            return {
+                cityName: cityKey,
+                cityNameFormatted: CityFocusModel.formatCityName(cityKey),
+                maxTemp: cityDailyWeather.daily.apparent_temperature_max[0],
+                maxWind: cityDailyWeather.daily.wind_speed_10m_max[0],
+                weatherCode: cityDailyWeather.daily.weather_code[0],
+            };
+        });
+    }
+
     /**
      * Format a city key to a human-readable name.
      * @param {string} city - The city key.
