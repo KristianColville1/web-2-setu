@@ -5,3 +5,8 @@
 .mt-auto {
   margin-top: auto !important;
 }
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
