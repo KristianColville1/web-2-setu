@@ -21,7 +21,7 @@ export default class DashboardView {
      * @param {string[]} cityNameList - List of city names.
      * @param {Object[]} dailyForecast - List of weather data objects.
      */
-    renderDashboard(cityNameList, dailyForecast) {
+    renderDashboard(cityNameList, dailyForecast, callback = null) {
         console.log("Rendering Dashboard");
         this.forecastContainer.innerHTML = cityNameList
             .map((city, index) => {
@@ -35,8 +35,8 @@ export default class DashboardView {
 
 
                 return `
-                <div class="column is-12-mobile is-4-tablet">
-                    <a href="/city-focus?city=${name}">
+                <div class="column is-12-mobile is-6-tablet is-4-desktop">
+                    <a href="/city-focus?city=${callback === null ? name : callback(name)}" class="has-text-black">
                         <div class="card has-text-black has-text-centered p-3">
                             <h3 class="subtitle">${nameFormatted}</h3>
                                 <figure class="image is-128x128 is-flex is-justify-content-centered mx-auto">

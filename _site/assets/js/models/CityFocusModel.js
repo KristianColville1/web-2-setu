@@ -173,4 +173,15 @@ export default class CityFocusModel {
         let formatted = city.charAt(0).toUpperCase() + city.slice(1);
         return formatted.replace(/_/g, " ");
     }
+
+    /**
+     * Get the weather code for a specific city.
+     * @param {string} city - The city key.
+     * @returns {number} Weather code.
+     */
+    static unFormatCityName(city) {
+        if (!city) return "";
+        let formatted = city.charAt(0).toLowerCase() + city.slice(1);
+        return formatted.replace(/ /g, "_");
+    }
 }

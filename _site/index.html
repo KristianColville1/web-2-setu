@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <title>Whether Weather</title>
     <script src="/assets/data/weather_data.js" ></script>
-    <script src="/assets/js/weather_codes.js"></script>
+    <script src="/assets/js/weather_codes_ver2.js"></script>
     <script src="/assets/js/main.js" type="module" defer></script>
 </head>
 
@@ -22,8 +22,8 @@
     <header class="container">
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a href="/" >
-            <img src="/assets/images/logo.png" alt="Logo" style="width: 120px;">
+        <a href="/" className="navbar-brand is-info has-text-weight-bold">
+            <img src="/assets/images/logo-4.png" alt="Logo" style="width: 130px;">
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -57,7 +57,7 @@
         <button class="button is-small no-radius-right" id="toggleAll">All</button>
     </div>
       
-    <div class="columns is-multiline" id="forecastContainer">
+    <div class="columns is-multiline mx-2" id="forecastContainer">
     </div>
 </div>
     <footer class="footer mt-auto">

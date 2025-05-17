@@ -129,3 +129,11 @@ Controllers: Coordinating interactions
 // https://whetherweather96.netlify.app/
 
 // bulma extension for toggle
+
+// icons ver 2 in rel3
+
+
+attributes:
+icons Freepick flaticon
+
+logo ver 2 done with photopea and freepick icon
