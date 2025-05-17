@@ -9,7 +9,9 @@ export default class SettingsView {
     constructor(cities, updateCallback) {
         this.cities = cities;
         this.updateCallback = updateCallback;
-        this.favouriteCitiesContainer = document.querySelector("#favouriteCitiesContainer");
+        this.favouriteCitiesContainer = document.querySelector(
+            "#favouriteCitiesContainer"
+        );
         console.log("SettingsView initialized");
     }
 
@@ -19,14 +21,36 @@ export default class SettingsView {
      */
     renderFavouriteCitySettings(favouriteCities = []) {
         console.log("Rendering Settings");
-    
+
         if (!Array.isArray(favouriteCities)) {
-            favouriteCities = []; // Ensure favouriteCities is always an array - might break if not
+            favouriteCities = [];
         }
 
         this.favouriteCitiesContainer.innerHTML = this.cities
-            .map((city, index) => this._createCityToggleHTML(city, index, favouriteCities.includes(city)))
+            .map((city, index) =>
+                this._createCityToggleHTML(
+                    city,
+                    index,
+                    favouriteCities.includes(city)
+                )
+            )
             .join("");
+
+        // Attach event listeners to all toggle switches
+        this.favouriteCitiesContainer
+            .querySelectorAll('input[type="checkbox"]')
+            .forEach((toggle) => {
+                toggle.addEventListener("change", (event) => {
+                    const city = event.target.dataset.city;
+                    const isChecked = event.target.checked;
+                    console.log(`Toggle changed for ${city}: ${isChecked}`);
+
+                    // Invoke the callback
+                    if (typeof this.updateCallback === "function") {
+                        this.updateCallback(city, isChecked);
+                    }
+                });
+            });
     }
 
     /**
@@ -57,13 +81,13 @@ export default class SettingsView {
         return `
             <div class="is-flex is-align-items-center is-justify-content-space-between mb-2">
                 <h6>${city}</h6>
-                <div class="toggle-container">
-                    <input id="cityYesNoToggle${index}" data-city="${city}" type="checkbox" name="toggle" class="switch is-rounded is-small is-info" ${isChecked ? "checked" : ""}>
+                <div class="toggle-container is-flex is-align-items-center">
+                    <input id="cityYesNoToggle${index}" data-city="${city}" type="checkbox" name="toggle" class="switch is-rounded is-small is-info" ${
+            isChecked ? "checked" : ""
+        }>
                     <label for="cityYesNoToggle${index}"></label>
                 </div>
             </div>
         `;
     }
-
-
 }

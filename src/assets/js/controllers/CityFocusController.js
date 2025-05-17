@@ -26,6 +26,6 @@ export default class CityFocusController {
         this.model.init(this.city);
         const { weatherToday, weatherHourly, dailyForecast } = this.model.getCityAllWeather();
         this.view.init(weatherToday, weatherHourly, dailyForecast);
-        this.view.addCityName(this.city);
+        this.view.addCityName(this.model.cityNameFormatted);
     }
 }
