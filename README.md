@@ -15,11 +15,18 @@ Developer: Kristian Colville
 * [Design](#design)
   * [Color Scheme](#color-scheme)
   * [Typography](#typography)
+  * [Layout](#layout)
+  * [Icons](#icons)
+  * [Use of Bulma](#use-of-bulma)
 * [Technologies &amp; Tools](#technologies--tools)
 * [Languages Used](#languages-used)
 * [Features](#features)
-  * [Pages](#pages)
-  * [Core Components](#core-components)
+  * [Proof of Concept 1](#proof-of-concept-1)
+  * [Proof of Concept 2](#proof-of-concept-2)
+  * [Proof of Concept 3](#proof-of-concept-3)
+  * [Release 1](#release-1)
+  * [Release 2](#release-2)
+  * [Release 3](#release-3)
 * [Data](#data)
 * [Testing](#testing)
   * [Google Lighthouse Results](#google-lighthouse-results)
@@ -153,19 +160,18 @@ Together, these design choices support a functional, responsive, and visually pl
 
 ## Technologies & Tools
 
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)The standard markup language used to structure the web pages and content of the application.
-- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)Used for styling the application, enhancing layout, colors, and responsiveness.
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)The primary programming language powering the web app’s interactivity.
-- [Bulma CSS Framework](https://bulma.io/)A modern, responsive CSS framework used for layout, typography, and UI components to minimize custom styling.
-- [Flaticon](https://www.flaticon.com/)Source for the weather icons used in the app, providing clear and attractive visuals for weather conditions.
-- [Freepik](https://www.freepik.com/)The platform from which Flaticon icons were sourced, offering a wide range of free and premium graphic resources.
-- [Photopea](https://www.photopea.com/)An online photo editing tool used to customize and optimize the logo for the project.
-- [Bulma Toggle extension](https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css)A Bulma extension utilized for toggle switches in the UI, improving user preference controls.
-- [Netlify](https://www.netlify.com/)The hosting platform used to deploy and serve the application live with continuous integration support.
-- [Eleventy](https://www.11ty.dev/)A static site generator used to build and manage the project’s frontend templates and content.
-- [Nunjucks](https://mozilla.github.io/nunjucks/)A templating engine integrated with Eleventy to enable reusable HTML templates and efficient page generation.
-- [Favicon](https://favicon.io/)
-  A favicon generator for the web app.
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - The standard markup language used to structure the web pages and content of the application.
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS ) - Used for styling the application, enhancing layout, colors, and responsiveness.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - The primary programming language powering the web app’s interactivity.
+- [Bulma CSS Framework](https://bulma.io/) - A modern, responsive CSS framework used for layout, typography, and UI components to minimize custom styling.
+- [Flaticon](https://www.flaticon.com/) - Source for the weather icons used in the app, providing clear and attractive visuals for weather conditions.
+- [Freepik](https://www.freepik.com/) - The platform from which Flaticon icons were sourced, offering a wide range of free and premium graphic resources.
+- [Photopea](https://www.photopea.com/) - An online photo editing tool used to customize and optimize the logo for the project.
+- [Bulma Toggle extension](https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css) - A Bulma extension utilized for toggle switches in the UI, improving user preference controls.
+- [Netlify](https://www.netlify.com/) - The hosting platform used to deploy and serve the application live with continuous integration support.
+- [Eleventy](https://www.11ty.dev/) - A static site generator used to build and manage the project’s frontend templates and content.
+- [Nunjucks](https://mozilla.github.io/nunjucks/) - A templating engine integrated with Eleventy to enable reusable HTML templates and efficient page generation.
+- [Favicon](https://favicon.io/) - A favicon generator for the web app.
 
 ---
 
@@ -173,53 +179,73 @@ Together, these design choices support a functional, responsive, and visually pl
 
 ### Proof of Concept 1
 
-- **Weather code mapped to correct weather showing icon**Visual weather icons display the current conditions based on API weather codes.
-- **Weather code mapped to WMO specification for accuracy**Codes follow the World Meteorological Organization standards for consistency.
-- **Display City Name**Shows the selected city's name prominently for clarity.
-- **Max Temperature showing**Highlights the highest temperature expected each day.
+- **Weather code mapped to correct weather showing icon**
+Visual weather icons display the current conditions based on API weather codes.
+- **Weather code mapped to WMO specification for accuracy**
+Codes follow the World Meteorological Organization standards for consistency.
+- **Display City Name**
+Shows the selected city's name prominently for clarity.
+- **Max Temperature showing**
+Highlights the highest temperature expected each day.
 - **Max Wind showing**
   Displays the maximum wind speed forecast for the day.
 
 ### Proof of Concept 2
 
-- **Adding current hours forecast**Detailed hourly forecast starting from the current hour.
-- **Correctly mapping hourly weather code to UTC Dublin**Ensures hourly weather aligns with UTC time adjusted for Dublin.
+- **Adding current hours forecast**
+Detailed hourly forecast starting from the current hour.
+- **Correctly mapping hourly weather code to UTC Dublin**
+Ensures hourly weather aligns with UTC time adjusted for Dublin.
 - **Correct hour taken from the browser**
-  Uses the user's local browser time to display accurate hourly data.
+Uses the user's local browser time to display accurate hourly data.
 
 ### Proof of Concept 3
 
-- **7 Day weather summary**Provides a concise 7-day forecast overview.
-- **Weather Codes mapped correctly and displaying icon depending on the forecast**Shows forecast icons matching daily weather codes for clarity.
+- **7 Day weather summary**
+Provides a concise 7-day forecast overview.
+- **Weather Codes mapped correctly and displaying icon depending on the forecast**
+Shows forecast icons matching daily weather codes for clarity.
 - **Showing Additional Weather information for wind and temperature**
-  Includes detailed wind speeds and temperature ranges in the forecast.
+Includes detailed wind speeds and temperature ranges in the forecast.
 
 ### Release 1
 
-- **User experience improved**UI and performance enhancements using Bulma to reduce custom CSS.
-- **Navigating to the city view**Easy transitions to detailed city weather views.
-- **Navigating to dashboard**Centralized dashboard to overview multiple cities.
+- **User experience improved**
+UI and performance enhancements using Bulma to reduce custom CSS.
+- **Navigating to the city view**
+Easy transitions to detailed city weather views.
+- **Navigating to dashboard**
+Centralized dashboard to overview multiple cities.
 - **Utilising URL paths and parameters**
-  Dynamic routing using URL paths and query parameters.
+Dynamic routing using URL paths and query parameters.
 
 ### Release 2
 
-- **User preferences interface on the settings page**Settings UI for customizing units and city selections.
-- **Preferences stored in Local Storage**Saves user settings locally for persistence.
-- **Clear and simple navigation system**Intuitive navigation between dashboard, city, and settings.
-- **Dashboard renders dynamically based on preferences**Hides or shows tabs like "Favourites" depending on saved data.
+- **User preferences interface on the settings page**
+Settings UI for customizing units and city selections.
+- **Preferences stored in Local Storage**
+Saves user settings locally for persistence.
+- **Clear and simple navigation system**
+Intuitive navigation between dashboard, city, and settings.
+- **Dashboard renders dynamically based on preferences**
+Hides or shows tabs like "Favourites" depending on saved data.
 - **Preferences cleared when browser cache is wiped**
-  Local Storage resets when browser data is cleared.
+Local Storage resets when browser data is cleared.
 
 ### Release 3
 
-- **Responsive navigation with JavaScript hamburger menu**Mobile-friendly hamburger menu toggles navigation visibility.
-- **Additional weather info such as precipitation probability**Displays chances of rain or other precipitation.
-- **Dynamic colors for weekly forecast backgrounds**Background colors change sequentially to represent the next 7 days.
-- **City Switcher toggles left and right on city focus page**Users can browse cities using intuitive toggle controls.
-- **Dynamic extraction of city data using '_daily' keys**Automatically parses API data for city-specific daily forecasts.
+- **Responsive navigation with JavaScript hamburger menu**
+Mobile-friendly hamburger menu toggles navigation visibility.
+- **Additional weather info such as precipitation probability**
+Displays chances of rain or other precipitation.
+- **Dynamic colors for weekly forecast backgrounds**
+Background colors change sequentially to represent the next 7 days.
+- **City Switcher toggles left and right on city focus page**
+Users can browse cities using intuitive toggle controls.
+- **Dynamic extraction of city data using '_daily' keys**
+Automatically parses API data for city-specific daily forecasts.
 - **Improved UI with updated weather icons**
-  More appealing and friendly icons reflecting refined weather data.
+More appealing and friendly icons reflecting refined weather data.
 
 ---
 
@@ -232,7 +258,8 @@ The `weather_data` provided in the assignment was used to mimic real API data. T
 ## Testing
 
 ### Google Lighthouse Results
-
+![1747585999634](image/README/1747585999634.png)
+![1747586027208](image/README/1747586027208.png)
 ---
 
 ## Bugs
@@ -315,12 +342,16 @@ My approach to development includes:
 
 Feature Focus:
 
-- **Weather code mapped to correct weather showing icon**The app displays a visual icon that corresponds to the current weather condition based on the weather code provided by the API.
-- **Weather code mapped to WMO specification for accuracy**Weather codes are interpreted using the official WMO (World Meteorological Organization) standard to ensure consistency and accuracy across all regions.
-- **Display City Name**The currently selected city's name is shown prominently at the top of the weather view for user clarity.
-- **Max Temperature showing**The interface highlights the maximum expected temperature for the day to help users plan accordingly.
+- **Weather code mapped to correct weather showing icon**
+The app displays a visual icon that corresponds to the current weather condition based on the weather code provided by the API.
+- **Weather code mapped to WMO specification for accuracy**
+Weather codes are interpreted using the official WMO (World Meteorological Organization) standard to ensure consistency and accuracy across all regions.
+- **Display City Name**
+The currently selected city's name is shown prominently at the top of the weather view for user clarity.
+- **Max Temperature showing**
+The interface highlights the maximum expected temperature for the day to help users plan accordingly.
 - **Max Wind showing**
-  The maximum wind speed for the day is displayed, useful for weather-sensitive activities or alerts.
+The maximum wind speed for the day is displayed, useful for weather-sensitive activities or alerts.
 
 ![POC1](doc/images/poc1.png)
 
@@ -328,10 +359,12 @@ Proof of concept 2:
 
 Feature Focus:
 
-- **Adding current hours forecast**The app includes a detailed hourly forecast starting from the current hour, providing users with short-term weather insights.
-- **Correctly mapping hourly weather code to UTC Dublin**Hourly weather codes are aligned with UTC time, adjusted specifically for the Dublin time zone to ensure accurate local forecasts.
+- **Adding current hours forecast**
+The app includes a detailed hourly forecast starting from the current hour, providing users with short-term weather insights.
+- **Correctly mapping hourly weather code to UTC Dublin**
+Hourly weather codes are aligned with UTC time, adjusted specifically for the Dublin time zone to ensure accurate local forecasts.
 - **Correct hour taken from the browser**
-  The application detects the user's current local time directly from the browser to determine which hourly data to show first.
+The application detects the user's current local time directly from the browser to determine which hourly data to show first.
 
 ![POC2](doc/images/poc2.png)
 
@@ -339,10 +372,12 @@ Feature Focus:
 
 Feature Focus:
 
-- **7 Day weather summary**A concise overview of the weather forecast for the next 7 days, helping users plan ahead with daily temperature and condition previews.
-- **Weather Codes mapped correctly and displaying icon depending on the forecast**Forecasted weather conditions are visualized using icons that match standardized weather codes, ensuring clear and intuitive representation.
+- **7 Day weather summary**
+A concise overview of the weather forecast for the next 7 days, helping users plan ahead with daily temperature and condition previews.
+- **Weather Codes mapped correctly and displaying icon depending on the forecast**
+Forecasted weather conditions are visualized using icons that match standardized weather codes, ensuring clear and intuitive representation.
 - **Showing Additional Weather information for wind and temperature**
-  Each day includes expanded details such as expected wind speeds and temperature ranges to provide a more complete forecast.
+Each day includes expanded details such as expected wind speeds and temperature ranges to provide a more complete forecast.
 
 ![POC3](doc/images/poc3.png)
 
@@ -350,11 +385,14 @@ Feature Focus:
 
 Feature Focus:
 
-- **User experience improved**Various UI and performance enhancements were made to streamline interactions and improve the overall feel of the application. More bulma classes added to help reduce extra CSS usage.
-- **Navigating to the city view**Users can easily transition to the city-specific weather view to see detailed forecasts and weather information.
-- **Navigating to dashboard**A centralized dashboard view allows users to access an overview of multiple cities or saved weather data quickly.
+- **User experience improved**
+Various UI and performance enhancements were made to streamline interactions and improve the overall feel of the application. More bulma classes added to help reduce extra CSS usage.
+- **Navigating to the city view**
+Users can easily transition to the city-specific weather view to see detailed forecasts and weather information.
+- **Navigating to dashboard**
+A centralized dashboard view allows users to access an overview of multiple cities or saved weather data quickly.
 - **Utilising URL paths and parameters**
-  The app leverages dynamic URL paths and query parameters to handle routing and state management between views.
+The app leverages dynamic URL paths and query parameters to handle routing and state management between views.
 
 ![REL1](doc/images/rel1.png)
 
@@ -362,12 +400,16 @@ Feature Focus:
 
 Feature Focus:
 
-- **User preferences user interface on the settings page**A dedicated UI on the settings page allows users to customize their weather viewing preferences such as temperature units and city selections.
-- **Preferences stored in Local Storage within the browser**User preferences are saved locally using the browser's Local Storage, ensuring settings persist between sessions.
-- **Clear and simple navigation system**The application includes an intuitive navigation structure, allowing users to switch between views like dashboard, city details, and settings with ease.
-- **Dashboard renders differently depending on preferences saved. No preferences and favourites tab disappears.**The dashboard dynamically adjusts its layout based on stored user preferences; if none are present, certain elements like the "Favourites" tab are hidden.
+- **User preferences user interface on the settings page**
+A dedicated UI on the settings page allows users to customize their weather viewing preferences such as temperature units and city selections.
+- **Preferences stored in Local Storage within the browser**
+User preferences are saved locally using the browser's Local Storage, ensuring settings persist between sessions.
+- **Clear and simple navigation system**
+The application includes an intuitive navigation structure, allowing users to switch between views like dashboard, city details, and settings with ease.
+- **Dashboard renders differently depending on preferences saved. No preferences and favourites tab disappears.**
+The dashboard dynamically adjusts its layout based on stored user preferences; if none are present, certain elements like the "Favourites" tab are hidden.
 - **Preferences are wiped when the browser cache is cleared**
-  Since preferences are stored locally, clearing the browser cache or site data will remove all saved user settings.
+Since preferences are stored locally, clearing the browser cache or site data will remove all saved user settings.
 
 ![REL2](doc/images/rel2-part1.png)
 ![REL2](doc/images/rel2-part2.png)
@@ -377,13 +419,18 @@ Feature Focus:
 Feature Focus:
 --------------
 
-- **Responsive navigation and hamburger connected using JavaScript to show on mobiles**A JavaScript-driven hamburger menu enables responsive navigation on smaller screens, improving usability on mobile devices.
-- **Additional weather information such as precipitation probability**The interface now includes precipitation probability, giving users a more comprehensive view of upcoming weather conditions.
-- **Colors of the weekly forecast backgrounds change and the sequence ensures the next 7 days are shown in linear form**The 7-day forecast is presented with dynamic background colors that visually represent each day in sequence, improving clarity and flow.
-- **City Switcher can be toggled left and right on the city focus page to switch cities**Users can easily browse through different cities using a left/right toggle, enhancing the multi-city browsing experience.
-- **City data is extracted dynamically without manual effort from weather data by using '_daily' keys in the object**The system automatically identifies and extracts city-specific weather data from structured API responses by recognizing `_daily` keys.
+- **Responsive navigation and hamburger connected using JavaScript to show on mobiles**
+A JavaScript-driven hamburger menu enables responsive navigation on smaller screens, improving usability on mobile devices.
+- **Additional weather information such as precipitation probability**
+The interface now includes precipitation probability, giving users a more comprehensive view of upcoming weather conditions.
+- **Colors of the weekly forecast backgrounds change and the sequence ensures the next 7 days are shown in linear form**
+The 7-day forecast is presented with dynamic background colors that visually represent each day in sequence, improving clarity and flow.
+- **City Switcher can be toggled left and right on the city focus page to switch cities**
+Users can easily browse through different cities using a left/right toggle, enhancing the multi-city browsing experience.
+- **City data is extracted dynamically without manual effort from weather data by using '_daily' keys in the object**
+The system automatically identifies and extracts city-specific weather data from structured API responses by recognizing `_daily` keys.
 - **User interface improved further by updating the original weather code data found so that the icons could make it friendlier and more appealing**
-  Weather icons have been updated to more accurately reflect conditions and enhance the visual appeal of the app based on improved weather code handling.
+Weather icons have been updated to more accurately reflect conditions and enhance the visual appeal of the app based on improved weather code handling.
 
 ![REL3](doc/images/rel3-part1.png)
 ![REL3](doc/images/rel3-part2.png)

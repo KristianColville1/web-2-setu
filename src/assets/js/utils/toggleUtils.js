@@ -12,16 +12,17 @@
 export function createToggleHTML({ label, id, dataAttr, dataValue, isChecked = false }) {
     return `
         <div class="is-flex is-align-items-center is-justify-content-space-between mb-2">
-            <h6>${label}</h6>
+            <h6 id="${id}-label">${label}</h6>
             <div class="toggle-container is-flex is-align-items-center">
-                <input id="${id}" data-${dataAttr}="${dataValue}" type="checkbox" name="toggle" class="switch is-rounded is-small is-primary" ${
-                        isChecked ? "checked" : ""
-                    }>
+                <input id="${id}" aria-labelledby="${id}-label" data-${dataAttr}="${dataValue}" type="checkbox" name="toggle" class="switch is-rounded is-small is-primary" ${
+        isChecked ? "checked" : ""
+    }>
                 <label for="${id}"></label>
             </div>
         </div>
     `;
 }
+
 
 /**
  * @function attachToggleListeners
