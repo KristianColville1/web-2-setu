@@ -56,7 +56,6 @@ export default class DashboardController {
      * Displays only favourite cities on the dashboard.
      */
     showFavourites() {
-        const cities = CityFocusModel.retrieveCitiesList();
         const favouriteCities = this.settingsModel.getFavouriteCitySettings();
         const allCityData =
             this.model.retrieveAllCityDailyWeatherFromFormattedList(

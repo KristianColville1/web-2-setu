@@ -1,7 +1,8 @@
 import { getWeatherIcon } from "../utils/weather_utils.js";
 
 /**
- * View for rendering the dashboard and handling UI toggles.
+ * @class DashboardView
+ * @description View for rendering the dashboard and handling UI toggles for city weather data.
  */
 export default class DashboardView {
     /**

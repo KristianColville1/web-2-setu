@@ -1,8 +1,8 @@
 /**
  *
  * @param {int} index
- * @returns {string} The name of the day based on the index.
- * @description This function returns the name of the day based on the index.
+ * @returns {string} - The name of the day based on the index.
+ * @description - This function returns the name of the day based on the index.
  */
 export function getDayName(index) {
     if (index === 0) return "Today";
@@ -23,8 +23,8 @@ export function getDayName(index) {
 
 /**
  * @param {int} index
- * @returns {string} The class name for the background color based on the day.
- * @description This function returns a class name for the background color
+ * @returns {string} - The class name for the background color based on the day.
+ * @description - This function returns a class name for the background color
  */
 export function changeBackgroundByDay(index) {
     const dayName = getDayName(index);

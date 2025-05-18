@@ -1,6 +1,7 @@
-
 /**
- * @description Weather codes and their corresponding images and descriptions
+ * Returns the HTML for the weather icon and description based on the weather code.
+ * @param {string|number} weatherCode - The weather code to look up.
+ * @returns {string} - HTML string for the weather icon and description.
  */
 export function getWeatherIcon(weatherCode) {
     return `
@@ -11,7 +12,6 @@ export function getWeatherIcon(weatherCode) {
                 class="m-auto mx-auto" 
                 style="width:225px" />
         </div>
-        
     `;
 }
 

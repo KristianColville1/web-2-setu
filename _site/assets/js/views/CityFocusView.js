@@ -2,19 +2,12 @@ import { getDayName, changeBackgroundByDay } from "../utils/date.js";
 import { getWeatherIcon } from "../utils/weather_utils.js";
 
 /**
- * CityFocusModel.js
- * @description This module defines the CityFocusModel class, which is responsible for managing the weather data for a specific city.
- * It provides methods to initialize the model with city data and retrieve the current weather information.
- * @module CityFocusModel
- * @requires weatherData
- * @requires weatherCodes
- * 
+ * @class CityFocusView
+ * @description View for rendering weather data and UI for a specific city, including daily and hourly weather, precipitation, and city name.
  */
 export default class CityFocusView {
-
     /**
-     * @constructor
-     * @description Initializes the CityFocusView class
+     * Sets up the CityFocusView by caching DOM elements for later use.
      */
     constructor() {
         this.cityName = document.querySelector("#cityName");
@@ -35,9 +28,10 @@ export default class CityFocusView {
     }
 
     /**
-     * 
-     * @param {*} todayWeather 
-     * @param {*} nowWeather 
+     * Initializes the view with today's weather, current weather, and daily forecast.
+     * @param {Object} todayWeather - Weather summary for today.
+     * @param {Object} nowWeather - Current hourly weather data.
+     * @param {Array<Object>} dailyForecast - Array of daily forecast objects.
      */
     init(todayWeather, nowWeather, dailyForecast) {
         this.renderTodayWeather(todayWeather);
@@ -47,8 +41,8 @@ export default class CityFocusView {
     }
 
     /**
-     * 
-     * @param {*} weatherData 
+     * Renders today's weather data in the UI.
+     * @param {Object} weatherData - Weather summary for today.
      */
     renderTodayWeather(weatherData) {
         // Render city daily weather data
@@ -61,8 +55,8 @@ export default class CityFocusView {
     }
 
     /**
-     * 
-     * @param {*} hourlyData 
+     * Renders the current (hourly) weather data in the UI.
+     * @param {Object} hourlyData - Hourly weather data.
      */
     renderTodayWeatherNow(hourlyData) {
         // Render city hourly weather data
@@ -70,6 +64,10 @@ export default class CityFocusView {
         this.windNow.innerHTML = `${hourlyData.hourlyWind} km/h`;
     }
 
+    /**
+     * Renders the daily weather forecast in the UI.
+     * @param {Array<Object>} dailyForecast - Array of daily forecast objects.
+     */
     renderDailyForecast(dailyForecast) {
       this.dailyForecastContainer.innerHTML = dailyForecast
             .map((forecast, index) => {
@@ -93,15 +91,27 @@ export default class CityFocusView {
             .join("");
     }
 
+    /**
+     * Renders the precipitation probability in the UI.
+     * @param {Object} hourlyForecast - Hourly weather data containing precipitation probability.
+     */
     renderPrecipitation(hourlyForecast){
         this.precipitation.innerHTML = hourlyForecast.precipitationProbability + " %";
     }
 
+    /**
+     * Sets the city name in the UI.
+     * @param {string} cityName - The name of the city.
+     */
     addCityName(cityName) {
         this.cityName.innerHTML =
             cityName.charAt(0).toUpperCase() + cityName.slice(1);
     }
 
+    /**
+     * Shows or hides weather setting containers based on saved settings.
+     * @param {Array<string>} settings - List of enabled weather settings.
+     */
     showSavedWeatherSettings(settings){
         if(!settings.includes("Temperature")){
             this.maxTempContainer.classList.add("d-none");

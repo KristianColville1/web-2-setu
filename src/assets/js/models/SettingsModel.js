@@ -74,6 +74,10 @@ export default class SettingsModel {
         this.favCitySerializer.save(newList);
     }
 
+    /**
+     * Sets a new list of weather settings and saves it to local storage.
+     * @param {Array} newList - The new list of weather settings.
+     */
     setWeatherSettings(newList) {
         this.weatherSettings = newList;
         this.weatherSerializer.save(newList);
@@ -91,6 +95,11 @@ export default class SettingsModel {
         }
     }
 
+    /**
+     * Adds a weather setting to the list if it is not already present.
+     * Saves the updated list to local storage.
+     * @param {string} setting - The weather setting to add.
+     */
     addWeatherSetting(setting) {
         if (!this.weatherSettings.includes(setting)) {
             this.weatherSettings.push(setting);
@@ -109,6 +118,10 @@ export default class SettingsModel {
         this.favCitySerializer.save(this.favouriteCityList);
     }
 
+    /**
+     * Removes a weather setting from the list and updates local storage.
+     * @param {string} setting - The weather setting to remove.
+     */
     removeWeatherSetting(setting) {
         this.weatherSettings = this.weatherSettings.filter(
             (s) => s !== setting
@@ -124,6 +137,10 @@ export default class SettingsModel {
         this.favCitySerializer.clear();
     }
 
+    /**
+     * Retrieves the default weather settings.
+     * @returns {Array} The default weather settings.
+     */
     static retrieveWeatherSettings() {
         return ["Temperature", "Wind", "Precipitation"];
     }

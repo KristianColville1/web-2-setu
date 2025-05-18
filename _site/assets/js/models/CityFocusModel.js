@@ -59,7 +59,7 @@ export default class CityFocusModel {
     /**
      * Get the temperature for a specific hour.
      * @param {Object} data - The weather data object.
-     * @param {number} hour - The hour 0 - 23.
+     * @param {number} timestamp - The hour 0 - 23.
      * @returns {string} The temperature for the hour, or "N/A".
      */
     getHourlyTemperature(data, timestamp) {
@@ -75,7 +75,7 @@ export default class CityFocusModel {
     /**
      * Get the wind speed for a specific hour.
      * @param {Object} data - The weather data object.
-     * @param {number} hour - The hour 0 - 23.
+     * @param {number} timestamp - The hour 0 - 23.
      * @returns {string} The wind speed for the hour or N/A.
      */
     getHourlyWindSpeed(data, timestamp) {
@@ -89,7 +89,7 @@ export default class CityFocusModel {
     /**
      * Get the precipitation probability for a specific hour.
      * @param {Object} data - The weather data object.
-     * @param {number} hour - The hour 0 - 23.
+     * @param {number} timestamp - The hour 0 - 23.
      * @returns {string} The precipitation probability for the hour or N/A.
      */
     getHourlyPrecipitationProbability(data, timestamp) {
@@ -166,6 +166,11 @@ export default class CityFocusModel {
         });
     }
 
+    /**
+     * Get the daily weather summary for all cities from a formatted list.
+     * @param {Array<string>} citiesList - List of formatted city names.
+     * @returns {Array<Object>} Array of weather summaries for each city.
+     */
     retrieveAllCityDailyWeatherFromFormattedList(citiesList) {
         console.log("Formatted List: ", citiesList);
         return citiesList.map((city) => {
@@ -193,9 +198,9 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the weather code for a specific city.
-     * @param {string} city - The city key.
-     * @returns {number} Weather code.
+     * Convert a formatted city name to a city key.
+     * @param {string} city - The formatted city name.
+     * @returns {string} City key.
      */
     static unFormatCityName(city) {
         if (!city) return "";

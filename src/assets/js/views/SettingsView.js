@@ -1,9 +1,10 @@
+import { createToggleHTML, attachToggleListeners } from "../utils/toggleUtils.js";
 /**
  * SettingsView handles rendering and updating the settings UI for favourite cities.
  */
 export default class SettingsView {
-
     /**
+     * Renders the city settings UI.
      * @param {string[]} cities - List of all available cities.
      * @param {Function} updateCallback - Callback to invoke when settings are updated.
      */
@@ -15,6 +16,12 @@ export default class SettingsView {
         );
     }
 
+    /**
+     * Renders the weather settings UI.
+     * @param {string[]} availableSettings - List of all available weather settings.
+     * @param {string[]} toggledSettings - List of toggled weather settings.
+     * @param {Function} updateCallback - Callback to invoke when settings are updated.
+     */
     renderWeatherSettings(availableSettings, toggledSettings = [], updateCallback) {
         this.weatherSettings = availableSettings;
         this.toggledWeatherSettings = toggledSettings;
@@ -25,29 +32,21 @@ export default class SettingsView {
 
         this.weatherSettingsContainer.innerHTML = availableSettings
             .map((setting, index) =>
-                this._createWeatherSettingHTML(
-                    setting,
-                    index,
-                    toggledSettings.includes(setting)
-                )
+                createToggleHTML({
+                    label: setting,
+                    id: `weatherSettingToggle${index}`,
+                    dataAttr: 'setting',
+                    dataValue: setting,
+                    isChecked: toggledSettings.includes(setting)
+                })
             )
             .join("");
 
-        // Attach event listeners to all toggle switches
-        this.weatherSettingsContainer
-            .querySelectorAll('input[type="checkbox"]')
-            .forEach((toggle) => {
-                toggle.addEventListener("change", (event) => {
-                    const setting = event.target.dataset.setting;
-                    const isChecked = event.target.checked;
-                    console.log(`Toggle changed for ${setting}: ${isChecked}`);
-
-                    // Invoke the callback
-                    if (typeof this.settingsUpdateCallback === "function") {
-                        this.settingsUpdateCallback(setting, isChecked);
-                    }
-                });
-            });
+        attachToggleListeners(
+            this.weatherSettingsContainer,
+            'setting',
+            this.settingsUpdateCallback
+        );
     }
 
     /**
@@ -63,29 +62,21 @@ export default class SettingsView {
 
         this.favouriteCitiesContainer.innerHTML = this.cities
             .map((city, index) =>
-                this._createCityToggleHTML(
-                    city,
-                    index,
-                    favouriteCities.includes(city)
-                )
+                createToggleHTML({
+                    label: city,
+                    id: `cityYesNoToggle${index}`,
+                    dataAttr: 'city',
+                    dataValue: city,
+                    isChecked: favouriteCities.includes(city)
+                })
             )
             .join("");
 
-        // Attach event listeners to all toggle switches
-        this.favouriteCitiesContainer
-            .querySelectorAll('input[type="checkbox"]')
-            .forEach((toggle) => {
-                toggle.addEventListener("change", (event) => {
-                    const city = event.target.dataset.city;
-                    const isChecked = event.target.checked;
-                    console.log(`Toggle changed for ${city}: ${isChecked}`);
-
-                    // Invoke the callback
-                    if (typeof this.cityUpdateCallback === "function") {
-                        this.cityUpdateCallback(city, isChecked);
-                    }
-                });
-            });
+        attachToggleListeners(
+            this.favouriteCitiesContainer,
+            'city',
+            this.cityUpdateCallback
+        );
     }
 
     /**
@@ -102,41 +93,5 @@ export default class SettingsView {
                 toggle.checked = favouriteCities.includes(city);
             }
         });
-    }
-
-    /**
-     * Generates the HTML for a single city toggle.
-     * @private
-     * @param {string} city - The city name.
-     * @param {number} index - The index of the city in the list.
-     * @param {boolean} isChecked - Whether the toggle should be checked.
-     * @returns {string} - The HTML string for the city toggle.
-     */
-    _createCityToggleHTML(city, index, isChecked = false) {
-        return `
-            <div class="is-flex is-align-items-center is-justify-content-space-between mb-2">
-                <h6>${city}</h6>
-                <div class="toggle-container is-flex is-align-items-center">
-                    <input id="cityYesNoToggle${index}" data-city="${city}" type="checkbox" name="toggle" class="switch is-rounded is-small is-info" ${
-            isChecked ? "checked" : ""
-        }>
-                    <label for="cityYesNoToggle${index}"></label>
-                </div>
-            </div>
-        `;
-    }
-
-    _createWeatherSettingHTML(setting, index, isChecked = false) {
-        return `
-            <div class="is-flex is-align-items-center is-justify-content-space-between mb-2">
-                <h6>${setting}</h6>
-                <div class="toggle-container is-flex is-align-items-center">
-                    <input id="weatherSettingToggle${index}" data-setting="${setting}" type="checkbox" name="toggle" class="switch is-rounded is-small is-info" ${
-            isChecked ? "checked" : ""
-        }>
-                    <label for="weatherSettingToggle${index}"></label>
-                </div>
-            </div>
-        `;
     }
 }

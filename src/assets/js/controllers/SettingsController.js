@@ -5,9 +5,12 @@ import ToastNotifier from "../utils/ToastNotifier.js";
 
 /**
  * @class SettingsController
- * @description Controller for managing settings related to favourite cities.
+ * @description Controller for managing settings related to favourite cities and weather settings.
  */
 export default class SettingsController {
+    /**
+     * Initializes the settings controller, model, view, and notifier.
+     */
     init() {
         this.model = new SettingsModel();
         this.cities = CityFocusModel.retrieveCitiesListFormatted();
@@ -15,6 +18,8 @@ export default class SettingsController {
         this.favouriteCities = this.model.getFavouriteCitySettings();
         this.savedWeatherSettings = this.model.getWeatherSettings();
         this.view = new SettingsView();
+        this.notifier = new ToastNotifier();
+
         this.view.renderCitySettings(
             this.cities,
             this.updateFavouriteCitySettings.bind(this)
@@ -24,13 +29,16 @@ export default class SettingsController {
             this.savedWeatherSettings,
             this.updateWeatherSettings.bind(this)
         );
-        this.notifier = new ToastNotifier();
-        this.view.renderFavouriteCitySettings(
-            this.favouriteCities
-        );
+        this.view.renderFavouriteCitySettings(this.favouriteCities);
+
         console.log("SettingsController initialized");
     }
 
+    /**
+     * Handles updates to favourite city settings.
+     * @param {string} city - The city to update.
+     * @param {boolean} isChecked - Whether the city is being added or removed.
+     */
     updateFavouriteCitySettings(city, isChecked) {
         if (isChecked) {
             this.model.addFavouriteCity(city);
@@ -45,7 +53,12 @@ export default class SettingsController {
         }
     }
 
-    updateWeatherSettings(weatherSetting, isChecked){
+    /**
+     * Handles updates to weather settings.
+     * @param {string} weatherSetting - The weather setting to update.
+     * @param {boolean} isChecked - Whether the setting is being enabled or disabled.
+     */
+    updateWeatherSettings(weatherSetting, isChecked) {
         if (isChecked) {
             this.model.addWeatherSetting(weatherSetting);
             this.notifier.show(`${weatherSetting} setting turned on`, {
