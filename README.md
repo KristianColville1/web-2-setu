@@ -111,6 +111,45 @@ The **card components** were also leveraged for grouping related content such as
 
 ### Icons
 
+| Logo                                                          |  Description    |
+| ------------------------------------------------------------- | --------------- |
+|![Sunny](src/assets/images/icons/sunny.png)                    | Sunny           |
+|![Windy](src/assets/images/icons/windy.png)                    | Windy           |
+|![Raining](src/assets/images/icons/raining.png)                | Raining         |
+|![Rain Drizzle](src/assets/images/icons/drizzle)               | Rain Drizzle    |
+|![Partially Cloudy](src/assets/images/icons/partially-cloudy)  | Partially Cloudy|
+|![Snow](src/assets/images/icons/snow.png)                      | Snow            |
+|![Storm](src/assets/images/icons/storm.png)                    | Storm           |
+|![Fog](src/assets/images/icons/fog.png)                        | Fog             |
+|![Precipitation](src/assets/images/icons/precipitation.png)    | Precipitation   |
+|![Clock](src/assets/images/icons/clock.png)                    | Clock           |
+|![Temperature](src/assets/images/icons/temperature.png)        | Temperature     |
+|![Left Chevron](src/assets/images/icons/left-chevron.png)      | Left Chevron    |
+|![Right Chevron](src/assets/images/icons/right-chevron.png)    | Right Chevron   |
+|![Logo](src/assets/images/logo-2.png)                          | Logo            |
+|![Logo-brand](src/assets/images/logo-4.png)                    | Logo-brand      |
+
+
+| Logo                                                          | Description     |
+| ------------------------------------------------------------- | --------------- |
+| <img src="src/assets/images/icons/sunny.png" width="100px"/> | Sunny           |
+| <img src="src/assets/images/icons/windy.png" width="100px"/> | Windy           |
+| <img src="src/assets/images/icons/raining.png" width="100px"/> | Raining        |
+| <img src="src/assets/images/icons/drizzle" width="100px"/>   | Rain Drizzle    |
+| <img src="src/assets/images/icons/partially-cloudy" width="100px"/> | Partially Cloudy |
+| <img src="src/assets/images/icons/snow.png" width="100px"/>  | Snow            |
+| <img src="src/assets/images/icons/storm.png" width="100px"/> | Storm           |
+| <img src="src/assets/images/icons/fog.png" width="100px"/>   | Fog             |
+| <img src="src/assets/images/icons/precipitation.png" width="100px"/> | Precipitation   |
+| <img src="src/assets/images/icons/clock.png" width="100px"/> | Clock           |
+| <img src="src/assets/images/icons/temperature.png" width="100px"/> | Temperature     |
+| <img src="src/assets/images/icons/left-chevron.png" width="100px"/> | Left Chevron    |
+| <img src="src/assets/images/icons/right-chevron.png" width="100px"/> | Right Chevron   |
+| <img src="src/assets/images/logo-2.png" width="100px"/>      | Logo            |
+| <img src="src/assets/images/logo-4.png" width="100px"/>      | Logo-brand      |
+
+
+
 In the latest release, new weather icons were added from **Freepik** via **Flaticon**, greatly enhancing the visual appeal and clarity of the forecasts. The layout was slightly adapted to better showcase these icons, ensuring:
 
 - Each day’s weather is quickly recognizable by image
