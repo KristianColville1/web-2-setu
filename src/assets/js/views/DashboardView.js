@@ -6,7 +6,8 @@ import { getWeatherIcon } from "../utils/weather_utils.js";
  */
 export default class DashboardView {
     /**
-     * Initializes the DashboardView and caches DOM elements.
+     * @constructor
+     * @description Initializes the DashboardView and caches DOM elements.
      */
     constructor() {
         this.forecastContainer = document.querySelector("#forecastContainer");
@@ -18,9 +19,11 @@ export default class DashboardView {
     }
 
     /**
-     * Renders the dashboard with city weather data.
+     * @method renderDashboard
+     * @description Renders the dashboard with city weather data.
      * @param {string[]} cityNameList - List of city names.
      * @param {Object[]} dailyForecast - List of weather data objects.
+     * @param {Function|null} callback - Optional callback for city link formatting.
      */
     renderDashboard(cityNameList, dailyForecast, callback = null) {
         console.log("Rendering Dashboard");
@@ -60,7 +63,8 @@ export default class DashboardView {
     }
 
     /**
-     * Shows the toggle container and activates the correct toggle.
+     * @method showToggleFavouritesContainer
+     * @description Shows the toggle container and activates the correct toggle.
      * @param {'favourites'|'all'} setting - Which toggle to activate.
      */
     showToggleFavouritesContainer(setting = 'favourites') {
@@ -69,14 +73,16 @@ export default class DashboardView {
     }
 
     /**
-     * Hides the toggle container.
+     * @method hideToggleFavouritesContainer
+     * @description Hides the toggle container.
      */
     hideToggleFavouritesContainer() {
         this.toggleFavouritesContainer.classList.add("is-invisible");
     }
 
     /**
-     * Activates the correct toggle button.
+     * @method activateToggler
+     * @description Activates the correct toggle button.
      * @param {'favourites'|'all'} setting - Which toggle to activate.
      */
     activateToggler(setting = 'favourites') {
@@ -90,16 +96,18 @@ export default class DashboardView {
     }
 
     /**
-     * Registers a callback for the "Favourites" toggle button.
-     * @param {Function} callback
+     * @method onToggleFavourites
+     * @description Registers a callback for the "Favourites" toggle button.
+     * @param {Function} callback - Callback function to execute on click.
      */
     onToggleFavourites(callback) {
         this.toggleFavourites.onclick = callback;
     }
 
     /**
-     * Registers a callback for the "All" toggle button.
-     * @param {Function} callback
+     * @method onToggleAll
+     * @description Registers a callback for the "All" toggle button.
+     * @param {Function} callback - Callback function to execute on click.
      */
     onToggleAll(callback) {
         this.toggleAll.onclick = callback;

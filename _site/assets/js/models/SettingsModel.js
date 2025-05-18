@@ -1,14 +1,14 @@
 import LocalStorageSerializer from "../utils/LocalStorageSerializer.js";
 import CityFocusModel from "./CityFocusModel.js";
 /**
-
  * @class SettingsModel
  * @description Model for managing the user's settings using local storage.
  * @property {LocalStorageSerializer} serializer - Serializer for local storage operations.
  */
 export default class SettingsModel {
     /**
-     * Initializes the SettingsModel and loads the favourite cities from local storage.
+     * @constructor
+     * @description Initializes the SettingsModel and loads the favourite cities and weather settings from local storage.
      */
     constructor() {
         this.hasInitializedSettingsSerializer = new LocalStorageSerializer(
@@ -49,7 +49,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Retrieves all favourite city settings from local storage.
+     * @method getFavouriteCitySettings
+     * @description Retrieves all favourite city settings from local storage.
      * @returns {Array} The list of favourite city settings.
      */
     getFavouriteCitySettings() {
@@ -57,8 +58,9 @@ export default class SettingsModel {
     }
 
     /**
-     * Returns the list of favourite cities from local storage.
-     * @returns {Array} The list of favourite cities.
+     * @method getWeatherSettings
+     * @description Returns the list of weather settings from local storage.
+     * @returns {Array} The list of weather settings.
      */
     getWeatherSettings() {
         // Always return the current settings, which are guaranteed to be set in the constructor
@@ -66,7 +68,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Sets a new list of favourite cities and saves it to local storage.
+     * @method setFavouriteCityList
+     * @description Sets a new list of favourite cities and saves it to local storage.
      * @param {Array} newList - The new list of favourite cities.
      */
     setFavouriteCityList(newList) {
@@ -75,7 +78,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Sets a new list of weather settings and saves it to local storage.
+     * @method setWeatherSettings
+     * @description Sets a new list of weather settings and saves it to local storage.
      * @param {Array} newList - The new list of weather settings.
      */
     setWeatherSettings(newList) {
@@ -84,8 +88,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Adds a city to the list of favourites if it is not already present.
-     * Saves the updated list to local storage.
+     * @method addFavouriteCity
+     * @description Adds a city to the list of favourites if it is not already present and saves the updated list to local storage.
      * @param {string} city - The city to add.
      */
     addFavouriteCity(city) {
@@ -96,8 +100,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Adds a weather setting to the list if it is not already present.
-     * Saves the updated list to local storage.
+     * @method addWeatherSetting
+     * @description Adds a weather setting to the list if it is not already present and saves the updated list to local storage.
      * @param {string} setting - The weather setting to add.
      */
     addWeatherSetting(setting) {
@@ -108,7 +112,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Removes a city from the list of favourites and updates local storage.
+     * @method removeFavouriteCity
+     * @description Removes a city from the list of favourites and updates local storage.
      * @param {string} city - The city to remove.
      */
     removeFavouriteCity(city) {
@@ -119,7 +124,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Removes a weather setting from the list and updates local storage.
+     * @method removeWeatherSetting
+     * @description Removes a weather setting from the list and updates local storage.
      * @param {string} setting - The weather setting to remove.
      */
     removeWeatherSetting(setting) {
@@ -130,7 +136,8 @@ export default class SettingsModel {
     }
 
     /**
-     * Clears all favourite cities from the list and local storage.
+     * @method clearFavouriteCities
+     * @description Clears all favourite cities from the list and local storage.
      */
     clearFavouriteCities() {
         this.favouriteCityList = [];
@@ -138,7 +145,9 @@ export default class SettingsModel {
     }
 
     /**
-     * Retrieves the default weather settings.
+     * @static
+     * @method retrieveWeatherSettings
+     * @description Retrieves the default weather settings.
      * @returns {Array} The default weather settings.
      */
     static retrieveWeatherSettings() {

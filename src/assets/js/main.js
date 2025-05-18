@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const page = document.body.dataset.page;
     const controller = controllers[page];
     if (controller) {
+        console.log(`${page.charAt(0).toUpperCase() + page.slice(1)}Controller initialized`);
         controller.init();
     }
 

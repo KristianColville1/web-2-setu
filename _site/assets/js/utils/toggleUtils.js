@@ -1,5 +1,6 @@
 /**
- * Generates the HTML for a single toggle (city or weather setting).
+ * @function createToggleHTML
+ * @description Generates the HTML for a single toggle (city or weather setting).
  * @param {Object} options - Options for the toggle.
  * @param {string} options.label - The label to display.
  * @param {string} options.id - The id for the input.
@@ -23,7 +24,8 @@ export function createToggleHTML({ label, id, dataAttr, dataValue, isChecked = f
 }
 
 /**
- * Attaches change event listeners to all toggles in a container.
+ * @function attachToggleListeners
+ * @description Attaches change event listeners to all toggles in a container.
  * @param {Element} container - The DOM element containing the toggles.
  * @param {string} dataAttr - The data attribute to read.
  * @param {Function} callback - The callback to invoke on change.

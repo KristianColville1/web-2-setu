@@ -9,7 +9,14 @@ pageId: cityFocus
 <div class="container columns">
 
     <div class="column is-12-mobile is-6-tablet has-text-centered" id="overviewContainer">
-        <div class="box has-text-black has-text-centered p-3 has-background-info-95">
+
+        <div class="box has-text-black has-text-centered p-3 has-background-info-95" id="cityOverview">
+            <div id="citySelector">
+                <button id="cityLeft"><img src="/assets/images/icons/left-chevron.png" alt="select to go left" width="20"
+                        height="20"></button>
+                <button id="cityRight"><img src="/assets/images/icons/right-chevron.png" alt="select to go right" width="20"
+                        height="20"></button>
+                </div>
             <h1 class="title has-text-centered " id="cityName"></h1>
             <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
             <div class="has-text-centered mb-3" id="weatherCode"></div>

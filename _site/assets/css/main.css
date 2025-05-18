@@ -37,3 +37,44 @@
   transform: scale(1.02);
   transition: all 0.2s ease-in-out;
 }
+
+#cityOverview {
+  position: relative;
+}
+
+#citySelector {
+  position: absolute;
+  width: 100%;
+}
+
+/* Shared styles for #cityLeft and #cityRight indicators */
+#cityLeft,
+#cityRight {
+  position: absolute;
+  top: 2rem;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Specific positioning */
+#cityLeft {
+  left: 2rem;
+}
+
+#cityRight {
+  right: 2rem;
+}
+
+/* Hover/active shared styles */
+#cityLeft:hover,
+#cityLeft:active,
+#cityRight:hover,
+#cityRight:active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.logo {
+  width: 100px;
+  margin: 0.25rem
+}

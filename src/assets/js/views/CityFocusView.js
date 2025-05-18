@@ -7,9 +7,19 @@ import { getWeatherIcon } from "../utils/weather_utils.js";
  */
 export default class CityFocusView {
     /**
-     * Sets up the CityFocusView by caching DOM elements for later use.
+     * @constructor
+     * Sets up the CityFocusView
      */
     constructor() {
+        this.collectDomElements();
+        this.setDefaultEventListeners();
+    }
+
+    /**
+     * @method collectDomElements
+     * @description Caches DOM elements for later use.
+     */
+    collectDomElements(){
         this.cityName = document.querySelector("#cityName");
         this.maxTemp = document.querySelector("#maxTemp");
         this.maxWind = document.querySelector("#maxWind");
@@ -25,6 +35,24 @@ export default class CityFocusView {
         this.maxTempContainer = document.querySelector("#maxTempContainer");
         this.maxWindContainer = document.querySelector("#maxWindContainer");
         this.precipitationContainer = document.querySelector("#precipitationContainer");
+        this.citySwitchContainer = document.querySelector("#citySelector");
+    }
+
+    /**
+     * @method setDefaultEventListeners
+     * @description Sets default event listeners for the view.
+     */
+    setDefaultEventListeners(){
+        this.citySwitchEventCallback = null;
+    }
+
+
+    /**
+     * @method listenForEvents
+     * @description Sets up event listeners for the view.
+     */
+    listenForEvents(){
+        this.setCitySwitchEventListener();
     }
 
     /**
@@ -41,7 +69,8 @@ export default class CityFocusView {
     }
 
     /**
-     * Renders today's weather data in the UI.
+     * @method renderTodayWeather
+     * @description Renders today's weather data in the UI.
      * @param {Object} weatherData - Weather summary for today.
      */
     renderTodayWeather(weatherData) {
@@ -55,7 +84,8 @@ export default class CityFocusView {
     }
 
     /**
-     * Renders the current (hourly) weather data in the UI.
+     * @method renderTodayWeatherNow
+     * @description Renders the current (hourly) weather data in the UI.
      * @param {Object} hourlyData - Hourly weather data.
      */
     renderTodayWeatherNow(hourlyData) {
@@ -65,7 +95,8 @@ export default class CityFocusView {
     }
 
     /**
-     * Renders the daily weather forecast in the UI.
+     * @method renderDailyForecast
+     * @description Renders the daily weather forecast in the UI.
      * @param {Array<Object>} dailyForecast - Array of daily forecast objects.
      */
     renderDailyForecast(dailyForecast) {
@@ -92,7 +123,8 @@ export default class CityFocusView {
     }
 
     /**
-     * Renders the precipitation probability in the UI.
+     * @method renderPrecipitation
+     * @description Renders the precipitation probability in the UI.
      * @param {Object} hourlyForecast - Hourly weather data containing precipitation probability.
      */
     renderPrecipitation(hourlyForecast){
@@ -109,7 +141,8 @@ export default class CityFocusView {
     }
 
     /**
-     * Shows or hides weather setting containers based on saved settings.
+     * @method showSavedWeatherSettings
+     * @description Shows or hides weather setting containers based on saved settings.
      * @param {Array<string>} settings - List of enabled weather settings.
      */
     showSavedWeatherSettings(settings){
@@ -122,5 +155,28 @@ export default class CityFocusView {
         if(!settings.includes("Precipitation")){
             this.precipitationContainer.classList.add("d-none");
         }
+    }
+
+    /**
+     * @method setCitySwitchEventListener
+     * @description Sets the event listener for city selection arrows in the city selector UI.
+     */
+    setCitySwitchEventListener() {
+        // Get the left and right elements within the city selector
+        this.cityLeft = this.citySwitchContainer.querySelector("#cityLeft");
+        this.cityRight = this.citySwitchContainer.querySelector("#cityRight");
+
+        // Attach event listeners
+        this.cityLeft.addEventListener("click", () => {
+            if (this.citySwitchEventCallback) {
+                this.citySwitchEventCallback("left");
+            }
+        });
+
+        this.cityRight.addEventListener("click", () => {
+            if (this.citySwitchEventCallback) {
+                this.citySwitchEventCallback("right");
+            }
+        });
     }
 }

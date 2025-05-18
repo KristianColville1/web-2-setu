@@ -6,14 +6,16 @@ import UIView from "../views/UIView.js";
  */
 export default class UIController {
     /**
-     * Initializes the UIController and its associated UIView.
+     * @constructor
+     * @description Initializes the UIController and its associated UIView.
      */
     constructor() {
         this.view = new UIView();
     }
 
     /**
-     * Initializes UI components.
+     * @method init
+     * @description Initializes UI components.
      */
     init() {
         this.view.setupBurgerMenu();

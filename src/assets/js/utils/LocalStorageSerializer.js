@@ -4,6 +4,8 @@
  */
 export default class LocalStorageSerializer {
     /**
+     * @constructor
+     * @description Initializes the serializer with a storage key.
      * @param {string} storageKey - The key used in localStorage.
      */
     constructor(storageKey) {
@@ -14,7 +16,8 @@ export default class LocalStorageSerializer {
     }
 
     /**
-     * Saves any JSON serializable data to localStorage.
+     * @method save
+     * @description Saves any JSON serializable data to localStorage.
      * @param {*} data - The data to be serialized and stored.
      */
     save(data) {
@@ -30,7 +33,8 @@ export default class LocalStorageSerializer {
     }
 
     /**
-     * Loads and parses data from localStorage.
+     * @method load
+     * @description Loads and parses data from localStorage.
      * @returns {*} - The parsed data, or null if not found or failed.
      */
     load() {
@@ -47,14 +51,16 @@ export default class LocalStorageSerializer {
     }
 
     /**
-     * Clears the stored data from localStorage.
+     * @method clear
+     * @description Clears the stored data from localStorage.
      */
     clear() {
         localStorage.removeItem(this.storageKey);
     }
 
     /**
-     * Checks if data exists in localStorage for the current key.
+     * @method exists
+     * @description Checks if data exists in localStorage for the current key.
      * @returns {boolean}
      */
     exists() {

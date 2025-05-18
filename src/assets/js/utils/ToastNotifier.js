@@ -1,16 +1,19 @@
 /**
  * @class ToastNotifier
- * @description A class for creating toast notifications.
- * This class manages the creation and display of toast messages
- * in a container that is appended to the body of the document.
+ * @description A class for creating toast notifications. This class manages the creation and display of toast messages in a container that is appended to the body of the document.
  */
 export default class ToastNotifier {
+    /**
+     * @constructor
+     * @description Initializes the ToastNotifier and creates the toast container if it doesn't exist.
+     */
     constructor() {
         this._createContainer();
     }
 
     /**
-     * Creates the toast container if it doesn't already exist.
+     * @method _createContainer
+     * @description Creates the toast container if it doesn't already exist.
      * @private
      */
     _createContainer() {
@@ -34,7 +37,8 @@ export default class ToastNotifier {
     }
 
     /**
-     * Shows a toast message.
+     * @method show
+     * @description Shows a toast message.
      * @param {string} message - The message to display.
      * @param {Object} [options] - Additional options.
      * @param {string} [options.type] - Bulma color class.
@@ -60,7 +64,8 @@ export default class ToastNotifier {
     }
 
     /**
-     * Removes a toast from the container.
+     * @method _removeToast
+     * @description Removes a toast from the container.
      * @private
      */
     _removeToast(toast) {

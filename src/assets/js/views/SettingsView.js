@@ -1,10 +1,12 @@
 import { createToggleHTML, attachToggleListeners } from "../utils/toggleUtils.js";
 /**
- * SettingsView handles rendering and updating the settings UI for favourite cities.
+ * @class SettingsView
+ * @description Handles rendering and updating the settings UI for favourite cities and weather settings.
  */
 export default class SettingsView {
     /**
-     * Renders the city settings UI.
+     * @method renderCitySettings
+     * @description Renders the city settings UI.
      * @param {string[]} cities - List of all available cities.
      * @param {Function} updateCallback - Callback to invoke when settings are updated.
      */
@@ -17,7 +19,8 @@ export default class SettingsView {
     }
 
     /**
-     * Renders the weather settings UI.
+     * @method renderWeatherSettings
+     * @description Renders the weather settings UI.
      * @param {string[]} availableSettings - List of all available weather settings.
      * @param {string[]} toggledSettings - List of toggled weather settings.
      * @param {Function} updateCallback - Callback to invoke when settings are updated.
@@ -50,7 +53,8 @@ export default class SettingsView {
     }
 
     /**
-     * Renders the settings UI with toggles for each city.
+     * @method renderFavouriteCitySettings
+     * @description Renders the settings UI with toggles for each city.
      * @param {string[]} favouriteCities - List of favourite cities to be toggled on.
      */
     renderFavouriteCitySettings(favouriteCities = []) {
@@ -80,7 +84,8 @@ export default class SettingsView {
     }
 
     /**
-     * Updates the toggles to reflect the current favourite cities.
+     * @method toggleFavouriteCities
+     * @description Updates the toggles to reflect the current favourite cities.
      * @param {string[]} favouriteCities - List of favourite cities to be toggled on.
      */
     toggleFavouriteCities(favouriteCities) {

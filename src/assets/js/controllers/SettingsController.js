@@ -9,7 +9,8 @@ import ToastNotifier from "../utils/ToastNotifier.js";
  */
 export default class SettingsController {
     /**
-     * Initializes the settings controller, model, view, and notifier.
+     * @method init
+     * @description Initializes the settings controller, model, view, and notifier.
      */
     init() {
         this.model = new SettingsModel();
@@ -35,7 +36,8 @@ export default class SettingsController {
     }
 
     /**
-     * Handles updates to favourite city settings.
+     * @method updateFavouriteCitySettings
+     * @description Handles updates to favourite city settings.
      * @param {string} city - The city to update.
      * @param {boolean} isChecked - Whether the city is being added or removed.
      */
@@ -54,7 +56,8 @@ export default class SettingsController {
     }
 
     /**
-     * Handles updates to weather settings.
+     * @method updateWeatherSettings
+     * @description Handles updates to weather settings.
      * @param {string} weatherSetting - The weather setting to update.
      * @param {boolean} isChecked - Whether the setting is being enabled or disabled.
      */

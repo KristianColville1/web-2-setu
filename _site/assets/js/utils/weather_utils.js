@@ -1,5 +1,6 @@
 /**
- * Returns the HTML for the weather icon and description based on the weather code.
+ * @function getWeatherIcon
+ * @description Returns the HTML for the weather icon and description based on the weather code.
  * @param {string|number} weatherCode - The weather code to look up.
  * @returns {string} - HTML string for the weather icon and description.
  */

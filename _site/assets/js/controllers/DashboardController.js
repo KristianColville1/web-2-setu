@@ -8,7 +8,8 @@ import DashboardView from "../views/DashboardView.js";
  */
 export default class DashboardController {
     /**
-     * Initializes the DashboardController.
+     * @constructor
+     * @description Initializes the DashboardController.
      */
     constructor() {
         /** @private */
@@ -16,7 +17,8 @@ export default class DashboardController {
     }
 
     /**
-     * Initializes models, view, and sets up the dashboard.
+     * @method init
+     * @description Initializes models, view, and sets up the dashboard.
      */
     init() {
         this.model = new CityFocusModel();
@@ -26,7 +28,8 @@ export default class DashboardController {
     }
 
     /**
-     * Sets up the dashboard based on user favourites.
+     * @method setupDashboard
+     * @description Sets up the dashboard based on user favourites.
      */
     setupDashboard() {
         if (this.settingsModel.getFavouriteCitySettings().length === 0) {
@@ -38,7 +41,8 @@ export default class DashboardController {
     }
 
     /**
-     * Displays all cities on the dashboard.
+     * @method showAllCities
+     * @description Displays all cities on the dashboard.
      * @param {boolean} withFavouritesToggle - Whether to show the toggle UI.
      */
     showAllCities(withFavouritesToggle = false) {
@@ -53,7 +57,8 @@ export default class DashboardController {
     }
 
     /**
-     * Displays only favourite cities on the dashboard.
+     * @method showFavourites
+     * @description Displays only favourite cities on the dashboard.
      */
     showFavourites() {
         const favouriteCities = this.settingsModel.getFavouriteCitySettings();
@@ -66,7 +71,8 @@ export default class DashboardController {
     }
 
     /**
-     * Sets up event listeners for the toggle buttons.
+     * @method setupToggleListeners
+     * @description Sets up event listeners for the toggle buttons.
      */
     setupToggleListeners() {
         this.view.onToggleFavourites(() => {

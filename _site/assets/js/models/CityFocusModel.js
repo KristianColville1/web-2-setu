@@ -4,7 +4,8 @@
  */
 export default class CityFocusModel {
     /**
-     * Initialize the model with a city name.
+     * @method init
+     * @description Initialize the model with a city name.
      * @param {string} cityName - The name of the city.
      */
     init(cityName) {
@@ -15,7 +16,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get todays weather summary for the current city.
+     * @method getCityWeather
+     * @description Get today's weather summary for the current city.
      * @returns {Object} Weather summary for today.
      */
     getCityWeather() {
@@ -29,7 +31,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the current hours weather for the city.
+     * @method getCityWeatherHourly
+     * @description Get the current hour's weather for the city.
      * @returns {Object} Hourly weather data.
      */
     getCityWeatherHourly() {
@@ -57,7 +60,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the temperature for a specific hour.
+     * @method getHourlyTemperature
+     * @description Get the temperature for a specific hour.
      * @param {Object} data - The weather data object.
      * @param {number} timestamp - The hour 0 - 23.
      * @returns {string} The temperature for the hour, or "N/A".
@@ -73,7 +77,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the wind speed for a specific hour.
+     * @method getHourlyWindSpeed
+     * @description Get the wind speed for a specific hour.
      * @param {Object} data - The weather data object.
      * @param {number} timestamp - The hour 0 - 23.
      * @returns {string} The wind speed for the hour or N/A.
@@ -87,7 +92,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the precipitation probability for a specific hour.
+     * @method getHourlyPrecipitationProbability
+     * @description Get the precipitation probability for a specific hour.
      * @param {Object} data - The weather data object.
      * @param {number} timestamp - The hour 0 - 23.
      * @returns {string} The precipitation probability for the hour or N/A.
@@ -103,7 +109,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the daily forecast for a city.
+     * @method getDailyForecast
+     * @description Get the daily forecast for a city.
      * @param {Object} data - The weather data object.
      * @returns {Array<Object>} Array of daily forecast objects.
      */
@@ -117,8 +124,9 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get all weather data for the current city.
-     * @returns {Object} Object containing todays, hourly, and daily forecast data.
+     * @method getCityAllWeather
+     * @description Get all weather data for the current city.
+     * @returns {Object} Object containing today's, hourly, and daily forecast data.
      */
     getCityAllWeather() {
         return {
@@ -129,7 +137,9 @@ export default class CityFocusModel {
     }
 
     /**
-     * Retrieve a list of city keys from weatherData.
+     * @static
+     * @method retrieveCitiesList
+     * @description Retrieve a list of city keys from weatherData.
      * @returns {Array<string>} List of city keys.
      */
     static retrieveCitiesList() {
@@ -139,7 +149,9 @@ export default class CityFocusModel {
     }
 
     /**
-     * Retrieve a list of formatted city names.
+     * @static
+     * @method retrieveCitiesListFormatted
+     * @description Retrieve a list of formatted city names.
      * @returns {Array<string>} List of formatted city names.
      */
     static retrieveCitiesListFormatted() {
@@ -149,7 +161,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the daily weather summary for all cities.
+     * @method retrieveAllCityDailyWeather
+     * @description Get the daily weather summary for all cities.
      * @param {Array<string>} citiesList - List of city keys.
      * @returns {Array<Object>} Array of weather summaries for each city.
      */
@@ -167,7 +180,8 @@ export default class CityFocusModel {
     }
 
     /**
-     * Get the daily weather summary for all cities from a formatted list.
+     * @method retrieveAllCityDailyWeatherFromFormattedList
+     * @description Get the daily weather summary for all cities from a formatted list.
      * @param {Array<string>} citiesList - List of formatted city names.
      * @returns {Array<Object>} Array of weather summaries for each city.
      */
@@ -187,7 +201,9 @@ export default class CityFocusModel {
     }
 
     /**
-     * Format a city key to a human-readable name.
+     * @static
+     * @method formatCityName
+     * @description Format a city key to a human-readable name.
      * @param {string} city - The city key.
      * @returns {string} Formatted city name.
      */
@@ -198,7 +214,9 @@ export default class CityFocusModel {
     }
 
     /**
-     * Convert a formatted city name to a city key.
+     * @static
+     * @method unFormatCityName
+     * @description Convert a formatted city name to a city key.
      * @param {string} city - The formatted city name.
      * @returns {string} City key.
      */
