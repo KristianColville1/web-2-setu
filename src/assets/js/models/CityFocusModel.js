@@ -1,3 +1,4 @@
+import {getCurrentHour} from "../utils/date.js";
 /**
  * @class CityFocusModel
  * @description Manages weather data for a specific city, providing methods to initialize with city data and retrieve weather information for others.
@@ -36,12 +37,7 @@ export default class CityFocusModel {
      * @returns {Object} Hourly weather data.
      */
     getCityWeatherHourly() {
-        const formatter = new Intl.DateTimeFormat("en-IE", { // Set the locale to Ireland
-            hour: "numeric",
-            hour12: false,
-            timeZone: "Europe/Dublin",
-        });
-        const currentHour = parseInt(formatter.format(new Date()), 10);
+        const currentHour = getCurrentHour();
         return {
             time: this.currentCityHourly.time,
             hourlyTemp: this.getHourlyTemperature(
