@@ -11,29 +11,40 @@ export default class SettingsModel {
      * Initializes the SettingsModel and loads the favourite cities from local storage.
      */
     constructor() {
+        this.hasInitializedSettingsSerializer = new LocalStorageSerializer(
+            "hasInitializedSettings"
+        );
         this.favCitySerializer = new LocalStorageSerializer(
             "favouriteCityList"
         );
         this.weatherSerializer = new LocalStorageSerializer("weatherSettings");
 
-        // Load or initialize favourite cities
+        // Check if settings have been initialized before
+        const hasInitialized = this.hasInitializedSettingsSerializer.load();
+
+        // Load favourite cities and weather settings from storage
         this.favouriteCityList = this.favCitySerializer.load();
-        if (
-            !Array.isArray(this.favouriteCityList) ||
-            this.favouriteCityList.length === 0
-        ) {
+        this.weatherSettings = this.weatherSerializer.load();
+
+        if (!hasInitialized) {
+            // Set default data if not initialized
             this.favouriteCityList = CityFocusModel.retrieveCitiesListFormatted();
             this.favCitySerializer.save(this.favouriteCityList);
-        }
 
-        // Load or initialize weather settings
-        this.weatherSettings = this.weatherSerializer.load();
-        if (
-            !Array.isArray(this.weatherSettings) ||
-            this.weatherSettings.length === 0
-        ) {
             this.weatherSettings = SettingsModel.retrieveWeatherSettings();
             this.weatherSerializer.save(this.weatherSettings);
+
+            this.hasInitializedSettingsSerializer.save(true);
+        } else {
+            // If not arrays (corrupted storage), reset to empty arrays
+            if (!Array.isArray(this.favouriteCityList)) {
+                this.favouriteCityList = [];
+                this.favCitySerializer.save(this.favouriteCityList);
+            }
+            if (!Array.isArray(this.weatherSettings)) {
+                this.weatherSettings = [];
+                this.weatherSerializer.save(this.weatherSettings);
+            }
         }
     }
 
