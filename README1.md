@@ -23,6 +23,7 @@ Developer: Kristian Colville
 * [Testing](#testing)
     * [Google Lighthouse Results](#google-lighthouse-results)
 * [Bugs](#bugs)
+* [Releases](#releases)
 * [Development & Deployment](#development--deployment)
     * [Version Control](#version-control)
     * [Cloning the Repository](#cloning-this-repository)
@@ -34,12 +35,139 @@ Developer: Kristian Colville
 
 
 
+## Project Goals](#project-goals)
+### Personal Goals](#personal-goals)## [User Experience (UX)](#user-experience-ux)
+### Target Audience](#target-audience)
 
 
+## Design
+### Color Scheme
+### Typography
+
+## Technologies & Tools
+
+## Features
+### Pages
+### Core Components
+
+## Data
+
+## Testing
+
+### Google Lighthouse Results
 
 
+## Bugs
+
+## Releases
+
+### Git Plan
+
+This repository tracks the iterative development of the weather forecasting website assignment for Whether Weather.
+
+The structure supports multiple stages of delivery from Proof-of-Concepts (POC) to full Releases using branches and commits to document each phase of the work.
+
+git checkout -b branch_name
+
+git push --set-upstream origin branch_name
+
+git checkout main
+
+git pull origin branch_name
+
+git push origin main
+
+### Strategy
+
+The assignment requires submitting multiple iterations of the same project:
+
+- POC 1 ---> POC 3
+- Release 1 ---> Release 3
+
+My strategy is to:
+
+* Initialize the repository with a solid foundation.
+* Create a dedicated branch for each POC and Release using the assignment structure as as guideline.
+* Ensure each branch builds upon the last, with meaningful, isolated commits representing real deliverable checkpoints.
+* Use Eleventy with NunJucks for templating, Bulma for styling and implement a clear MVC architecture in JavaScript.
+
+### My Timeline
+
+Project Starting Point: April 6
+Expected Final Submission: The week of May 18th
+Approximate Project Duration: 6 weeks
+
+Com
+
+### Git Scope & Branching
+
+| Branch | Description                  |
+| ------ | ---------------------------- |
+| main   | Stable Version Release Ready |
+| poc1   | Proof of concept 1           |
+| poc1   | Proof of concept 2           |
+| poc1   | Proof of concept 3           |
+|        |                              |
+| rel1   | Release 1: Dashboard         |
+| rel2   | Release 2: Preferences       |
+| rel3   | Release 3: Impress Us        |
+
+### Release Results
+
+Proof of concept 1:
+
+Feature Focus:
+- Weather code mapped to correct weather showing icon
+- Weather code mapped to WMO specification for accuracy
+- Display City Name
+- Max Temperature 
+- Max Wind
+![POC1](doc/images/poc1.png)
+
+Proof of concept 2:
+
+Feature Focus:
+- Adding current hours forecast
+- Correctly mapping hourly weather code to UTC dublin
+- Correct hour taken from the browser
+![POC2](doc/images/poc2.png)
+
+Proof of Concept 3:
+
+Feature Focus:
+- 7 Day summary
+- Weather Codes mapped correctly and displaying icon depending on the forecast
+- Showing Additional Weather information for wind and temperature
+![POC3](doc/images/poc3.png)
 
 
+Release 1:
+
+Feature Focus:
+- User experience improved
+- Navigating to the city view
+- Navigating to dashboard
+- Utilising URL paths and parameters
+![REL1](doc/images/rel1.png)
+
+
+Release 2:
+
+Feature Focus:
+- User experience improved
+- Navigating to the city view
+- Navigating to dashboard
+- Utilising URL paths and parameters
+![REL2](doc/images/rel2.png)
+
+Release 3:
+
+Feature Focus:
+- User experience improved
+- Navigating to the city view
+- Navigating to dashboard
+- Utilising URL paths and parameters
+![REL3](doc/images/rel3.png)
 
 
 

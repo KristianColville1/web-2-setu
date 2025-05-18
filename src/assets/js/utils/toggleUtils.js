@@ -14,7 +14,7 @@ export function createToggleHTML({ label, id, dataAttr, dataValue, isChecked = f
         <div class="is-flex is-align-items-center is-justify-content-space-between mb-2">
             <h6>${label}</h6>
             <div class="toggle-container is-flex is-align-items-center">
-                <input id="${id}" data-${dataAttr}="${dataValue}" type="checkbox" name="toggle" class="switch is-rounded is-small is-info" ${
+                <input id="${id}" data-${dataAttr}="${dataValue}" type="checkbox" name="toggle" class="switch is-rounded is-small is-primary" ${
                         isChecked ? "checked" : ""
                     }>
                 <label for="${id}"></label>
