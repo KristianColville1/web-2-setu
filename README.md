@@ -258,8 +258,21 @@ The `weather_data` provided in the assignment was used to mimic real API data. T
 ## Testing
 
 ### Google Lighthouse Results
+
+Dashboard
 ![1747585999634](image/README/1747585999634.png)
+
+City Focus
 ![1747586027208](image/README/1747586027208.png)
+
+Settings
+![1747590924839](image/README/1747590924839.png)
+
+HTML Validation
+![1747590735037](image/README/1747590735037.png)
+
+CSS3 Validation
+![1747590796693](image/README/1747590796693.png)
 ---
 
 ## Bugs
@@ -485,5 +498,5 @@ Netlify also automatically set up continuous deployment. Any new changes pushed 
 ## Credits
 
 * Bulma extension for toggle switch
-* Initial weather code images that helped with initial start of project until release 3 weather code images: https://gist.github.com/stellasphere/9490c195ed2b53c707087c8c2db4ec0c
-* Icons used where created by the author Freepick on Flaticon.
+* [Initial weather code images](https://gist.github.com/stellasphere/9490c195ed2b53c707087c8c2db4ec0c) that helped with initial start of project until release 3 weather code images.
+* Icons used where created by the author **Freepik** on **Flaticon**.
