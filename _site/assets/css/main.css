@@ -2,6 +2,10 @@
   min-height: 100vh !important;
 }
 
+.d-none {
+  display: none !important;
+}
+
 .mt-auto {
   margin-top: auto !important;
 }

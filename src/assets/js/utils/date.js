@@ -1,7 +1,8 @@
 /**
  *
  * @param {int} index
- * @returns
+ * @returns {string} The name of the day based on the index.
+ * @description This function returns the name of the day based on the index.
  */
 export function getDayName(index) {
     if (index === 0) return "Today";
@@ -20,6 +21,11 @@ export function getDayName(index) {
     return daysOfWeek[forecastDate.getDay()];
 }
 
+/**
+ * @param {int} index
+ * @returns {string} The class name for the background color based on the day.
+ * @description This function returns a class name for the background color
+ */
 export function changeBackgroundByDay(index) {
     const dayName = getDayName(index);
     if (dayName == "Today") {
@@ -37,4 +43,12 @@ export function changeBackgroundByDay(index) {
     if (dayName == "Sunday") {
         return "has-background-danger-light";
     }
+}
+
+/**
+ * @returns {number} The current hour 0 - 23.
+ * @description Returns the current hour as an integer.
+ */
+export function getCurrentHour() {
+    return new Date().getHours();
 }

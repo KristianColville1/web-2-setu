@@ -1,9 +1,6 @@
 /**
- * CityFocusModel.js
+ * @class CityFocusModel
  * @description Manages weather data for a specific city, providing methods to initialize with city data and retrieve weather information for others.
- * @module CityFocusModel
- * @requires weatherData
- * @requires weatherCodes
  */
 export default class CityFocusModel {
     /**
@@ -52,6 +49,10 @@ export default class CityFocusModel {
                 this.currentCityHourly,
                 currentHour
             ),
+            precipitationProbability: this.getHourlyPrecipitationProbability(
+                this.currentCityHourly,
+                currentHour
+            )
         };
     }
 
@@ -83,6 +84,22 @@ export default class CityFocusModel {
             time.includes(timestamp)
         );
         return index !== -1 ? `${data.hourly.wind_speed_10m[index]}` : "N/A";
+    }
+
+    /**
+     * Get the precipitation probability for a specific hour.
+     * @param {Object} data - The weather data object.
+     * @param {number} hour - The hour 0 - 23.
+     * @returns {string} The precipitation probability for the hour or N/A.
+     */
+    getHourlyPrecipitationProbability(data, timestamp) {
+        // Find the index of the current hour in the api data
+        const index = data.hourly.time.findIndex((time) =>
+            time.includes(timestamp)
+        );
+        return index !== -1
+            ? `${data.hourly.precipitation_probability[index]}`
+            : "N/A";
     }
 
     /**
@@ -150,6 +167,7 @@ export default class CityFocusModel {
     }
 
     retrieveAllCityDailyWeatherFromFormattedList(citiesList) {
+        console.log("Formatted List: ", citiesList);
         return citiesList.map((city) => {
             const cityKey = city.toLowerCase().replace(/ /g, "_"); // replace spaces with underscores
             const cityDailyWeather = weatherData[`${cityKey}_daily`];

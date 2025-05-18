@@ -4,36 +4,54 @@ title: City Focus
 permalink: city-focus.html
 pageId: cityFocus
 ---
-<div class="container columns py-4">
-    <div class="column">
-        <h1 class="title has-text-centered mt-4 " id="cityName"></h1>
-        <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
-        <div class="has-text-centered mb-3" id="weatherCode"></div>
-        <div class="columns">
-            <div class="column">
-                <div class="box has-text-black has-text-centered p-3">
-                    <h3 class="title">Max Temp</h3>
+<h1 class="title has-text-centered pt-4">City Focus</h1>
+<p class="subtitle has-text-centered">Overview</p>
+<div class="container columns">
+
+    <div class="column is-12-mobile is-8-tablet is-6-desktop has-text-centered" id="overviewContainer">
+        <div class="box has-text-black has-text-centered p-3 has-background-info-95">
+            <h1 class="title has-text-centered " id="cityName"></h1>
+            <h2 class="subtitle has-text-centered"><span id="time"></span></h2>
+            <div class="has-text-centered mb-3" id="weatherCode"></div>
+        </div>
+
+    </div>
+    <div class="column is-12-mobile is-8-tablet is-6-desktop has-text-centered">
+        <div class="columns is-multiline">
+            <div class="column is-12-mobile is-6-tablet " id="maxTempContainer">
+                <div class="box has-text-black has-text-centered p-3 has-background-info-95">
+                    <h3 class="subtitle has-text-weight-semibold">Max Temp</h3>
+                    <img src="/assets/images/icons/temperature.png" alt="Precipitation" width="65" />
                     <p id="maxTemp"></p>
                 </div>
             </div>
-            <div class="column">
-                <div class="box has-text-black has-text-centered p-3">
-                    <h3 class="title">Max Wind</h3>
+            <div class="column is-12-mobile is-6-tablet" id="maxWindContainer">
+                <div class="box has-text-black has-text-centered p-3 has-background-info-95">
+                    <h3 class="subtitle has-text-weight-semibold">Max Wind</h3>
+                    <img src="/assets/images/icons/windy.png" alt="Precipitation" width="65" />
                     <p id="maxWind"></p>
                 </div>
             </div>
-            <div class="column">
-                <div class="box py-3">
-                    <h4 class="title has-text-centered">Right Now</h4>
+            <div class="column is-12-mobile is-6-tablet" id="rightNowContainer">
+                <div class="box has-text-black has-text-centered p-3 has-background-danger-95">
+                    <h4 class="subtitle has-text-weight-semibold">Right Now</h4>
+                    <img src="/assets/images/icons/clock.png" alt="Precipitation" width="65" />
                     <div class="columns">
                         <div class="column has-text-centered" id="tempNow"></div>
                         <div class="column has-text-centered" id="windNow"></div>
                     </div>
                 </div>
             </div>
+            <div class="column is-12-mobile is-6-tablet" id="precipitationContainer">
+                <div class="box has-text-black has-text-centered p-3 has-background-warning-95">
+                    <h4 class="subtitle has-text-weight-semibold">Precipitation</h4>
+                    <img src="/assets/images/icons/precipitation.png" alt="Precipitation" width="65" />
+                    <p id="precipitation">0%</p>
+                </div>
+            </div>
+
         </div>
     </div>
-
 </div>
 <div class="container columns is-multiline is-flex is-justify-content-center" id="dailyForecastContainer">
 </div>

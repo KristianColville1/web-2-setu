@@ -3,7 +3,8 @@ import SettingsModel from "../models/SettingsModel.js";
 import DashboardView from "../views/DashboardView.js";
 
 /**
- * Controller for the dashboard, managing city data and view toggling.
+ * @class DashboardController
+ * @description Controller for the dashboard, managing city data and view toggling.
  */
 export default class DashboardController {
     /**
@@ -28,7 +29,7 @@ export default class DashboardController {
      * Sets up the dashboard based on user favourites.
      */
     setupDashboard() {
-        if (this.settingsModel.getFavouriteCityList().length === 0) {
+        if (this.settingsModel.getFavouriteCitySettings().length === 0) {
             this.showAllCities();
         } else {
             this.showFavourites();
@@ -56,7 +57,7 @@ export default class DashboardController {
      */
     showFavourites() {
         const cities = CityFocusModel.retrieveCitiesList();
-        const favouriteCities = this.settingsModel.getFavouriteCityList();
+        const favouriteCities = this.settingsModel.getFavouriteCitySettings();
         const allCityData =
             this.model.retrieveAllCityDailyWeatherFromFormattedList(
                 favouriteCities

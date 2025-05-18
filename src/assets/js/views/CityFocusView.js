@@ -26,6 +26,12 @@ export default class CityFocusView {
         this.dailyForecastContainer = document.querySelector(
             "#dailyForecastContainer"
         );
+        this.precipitation= document.querySelector(
+            "#precipitation"
+        );
+        this.maxTempContainer = document.querySelector("#maxTempContainer");
+        this.maxWindContainer = document.querySelector("#maxWindContainer");
+        this.precipitationContainer = document.querySelector("#precipitationContainer");
     }
 
     /**
@@ -37,6 +43,7 @@ export default class CityFocusView {
         this.renderTodayWeather(todayWeather);
         this.renderTodayWeatherNow(nowWeather);
         this.renderDailyForecast(dailyForecast);
+        this.renderPrecipitation(nowWeather);
     }
 
     /**
@@ -67,14 +74,13 @@ export default class CityFocusView {
       this.dailyForecastContainer.innerHTML = dailyForecast
             .map((forecast, index) => {
                 return `
-        <div class="column is-12-mobile is-6-tablet is-3-desktop">
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
             <div class="box mx-1 mb-4 has-text-centered ${changeBackgroundByDay(index)}">
                 <p class="title is-5">${getDayName(index)}</p>
-                <figure class="image is-128x128 m-auto">
                     <img src="${weatherCodes[forecast.weatherCode].day.image}" 
                          alt="${
                              weatherCodes[forecast.weatherCode].day.description
-                         }" />
+                         }" width="100"/>
                 </figure>
                 <div class="is-flex is-justify-content-space-between mt-3">
                     <p class="subtitle is-6">${forecast.temperature}°C</p>
@@ -87,8 +93,24 @@ export default class CityFocusView {
             .join("");
     }
 
+    renderPrecipitation(hourlyForecast){
+        this.precipitation.innerHTML = hourlyForecast.precipitationProbability + " %";
+    }
+
     addCityName(cityName) {
         this.cityName.innerHTML =
             cityName.charAt(0).toUpperCase() + cityName.slice(1);
+    }
+
+    showSavedWeatherSettings(settings){
+        if(!settings.includes("Temperature")){
+            this.maxTempContainer.classList.add("d-none");
+        }
+        if(!settings.includes("Wind")){
+            this.maxWindContainer.classList.add("d-none");
+        }
+        if(!settings.includes("Precipitation")){
+            this.precipitationContainer.classList.add("d-none");
+        }
     }
 }

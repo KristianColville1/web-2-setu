@@ -1,5 +1,6 @@
 import CityFocusModel from "../models/CityFocusModel.js";
 import CityFocusView from "../views/CityFocusView.js";
+import SettingModel from "../models/SettingsModel.js";
 
 /**
  * @class CityFocusController
@@ -16,6 +17,7 @@ export default class CityFocusController {
         this.city = params.get("city");
         this.model = new CityFocusModel();
         this.view = new CityFocusView();
+        this.settingsModel = new SettingModel();
     }
 
     /**
@@ -27,5 +29,6 @@ export default class CityFocusController {
         const { weatherToday, weatherHourly, dailyForecast } = this.model.getCityAllWeather();
         this.view.init(weatherToday, weatherHourly, dailyForecast);
         this.view.addCityName(this.model.cityNameFormatted);
+        this.view.showSavedWeatherSettings(this.settingsModel.getWeatherSettings());
     }
 }

@@ -1,3 +1,7 @@
+
+/**
+ * @description Weather codes and their corresponding images and descriptions
+ */
 export function getWeatherIcon(weatherCode) {
     return `
         <div class="has-text-centered">

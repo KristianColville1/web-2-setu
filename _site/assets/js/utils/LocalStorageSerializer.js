@@ -1,6 +1,6 @@
 /**
- * LocalStorageSerializer provides a generic interface for saving and loading
- * JSON serializable data to and from localStorage.
+ * @class LocalStorageSerializer
+ * @description A utility class for JSON serializing and deserializing data to and from localStorage.
  */
 export default class LocalStorageSerializer {
     /**

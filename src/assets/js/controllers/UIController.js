@@ -1,7 +1,8 @@
 import UIView from "../views/UIView.js";
 
 /**
- * Controller for managing UI interactions and delegating to the UIView.
+ * @class UIController
+ * @description Controller for managing UI interactions and delegating to the UIView.
  */
 export default class UIController {
     /**
